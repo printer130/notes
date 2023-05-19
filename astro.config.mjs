@@ -9,5 +9,7 @@ const url = import.meta.VERCEL_ENV === 'production' ? 'https://the-notes-ten.ver
 // https://astro.build/config
 export default defineConfig({
   site: 'https://the-notes-ten.vercel.app/',
-  integrations: [mdx(), sitemap(), tailwind()]
+  integrations: [mdx(), sitemap(), tailwind()],
+  adapter: vercel(),
+	output: 'static',
 });
