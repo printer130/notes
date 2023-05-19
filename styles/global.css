@@ -1,0 +1,46 @@
+html, body {
+  background-color: #050014;
+  color: #eee;
+}
+h2 {
+  color: rgba(255, 0, 0, 0.9);
+  font-size: 1.8rem;
+  padding-top: 3rem;
+  font-weight: bold;
+}
+
+time {
+  font-size: 1rem;
+  opacity: .9;
+  font-style: italic;
+}
+
+h3 {
+  color: rgba(255, 0, 0, 0.9);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+h4 {
+  color: rgba(255, 0, 0, 0.9);
+}
+
+ul {
+  margin: 1.2rem 0;
+  list-style: inside;
+}
+
+p {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+li > p {
+  display: inline;
+}
+
+pre {
+  padding: 1rem;
+  margin: 1rem 0;
+}
