@@ -2,6 +2,7 @@
 import Title from "@components/Title.astro";
 import { getCollection } from "astro:content";
 import { BUFFER_OVERFLOW } from "src/consts";
+import FormattedDate from "./FormattedDate.astro";
 
 const topOverFLow = (await getCollection(BUFFER_OVERFLOW)).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -14,6 +15,7 @@ const topOverFLow = (await getCollection(BUFFER_OVERFLOW)).sort(
       {
         topOverFLow.map(post => {
           return <li>
+            <FormattedDate date={post.data.pubDate} />
             <a href={`/${BUFFER_OVERFLOW}/${post.slug}/`}>{post.data.title}</a>
             </li>
         })

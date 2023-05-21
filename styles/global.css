@@ -2,18 +2,12 @@ html, body {
   background-color: #050014;
   color: #eee;
 }
+
 h2 {
   color: rgba(255, 0, 0, 0.9);
   font-size: 1.8rem;
   padding-top: 2rem;
   font-weight: bold;
-}
-
-time {
-  font-size: 1rem;
-  opacity: .9;
-  font-style: italic;
-  margin-right: 1rem;
 }
 
 h3 {
@@ -26,13 +20,32 @@ h4 {
   color: rgba(255, 0, 0, 0.9);
 }
 
+time {
+  font-size: 1rem;
+  opacity: .9;
+  font-style: italic;
+  margin-right: 1rem;
+}
+
 ul {
   margin: 1.2rem 0;
   list-style: inside;
 }
 
 li {
+  display: flex;
+  list-style: none;
   padding-bottom: 4px;
+}
+
+li :global(time) {
+  flex: 0 0 130px;
+  font-style: italic;
+  color: #595959;
+}
+
+li a:visited {
+  color: #8e32dc;
 }
 
 p {

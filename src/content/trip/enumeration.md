@@ -1,6 +1,6 @@
 ---
 title: "Enumeration"
-description: "This is an resume from INE (eJPT Learning Path) and self notes to get success on cert"
+description: "A resume from INE Learning Path for eJPT cert and some self notes to get success"
 pubDate: "May 12 2023"
 heroImage: "/enumeration.png"
 ---

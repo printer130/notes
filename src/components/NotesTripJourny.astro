@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import { TRIP } from "src/consts";
 import Title from "./Title.astro";
+import FormattedDate from "./FormattedDate.astro";
 
 const topTRIP = (await getCollection(TRIP)).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -10,11 +11,12 @@ const topTRIP = (await getCollection(TRIP)).sort(
 ---
 
 <section>
-  <Title>Trip journy</Title>
+  <Title>Trip journey</Title>
   <ul>
       {
         topTRIP.map(post => {
           return <li>
+            <FormattedDate date={post.data.pubDate} />
             <a href={`/${TRIP}/${post.slug}/`}>{post.data.title}</a>
             </li>
         })
