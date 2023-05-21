@@ -8,3 +8,5 @@ export const SITE_DESCRIPTION = 'Top 10 vulnerabilities from owasp!';
 export const TOP_VULNERALIBILITIES = 'top-vulnerabilidades'
 
 export const BUFFER_OVERFLOW = 'buffer-overflow'
+
+export const TRIP = 'trip'

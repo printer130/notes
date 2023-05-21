@@ -7,14 +7,14 @@ heroImage: "/xlrf.png"
 
 ### Information:
 
-- `SOA` Indicates the start of authority.
-- `A` IPv4 addresses.
-- `AAAA` IPv6 addresses.
-- `CNAME` records for canonical records that indicate the canonical domain.
-- `MX` records for the receiving email servers.
-- `TXT` records for various verification methods
-- `SRV` records for services.
-- `PTR` for a reverse DNS lookup.
+- **`SOA:`** Indicates the start of authority, stores important information about a domain or zone such as the email address of the administrator.
+- **`A:`** IPv4 addresses.
+- **`AAAA:`** IPv6 addresses.
+- **`CNAME:`** Records for canonical records that indicate the canonical domain, specify domain aliases.
+- **`MX:`** Records for the receiving email servers.
+- **`TXT:`** Records for various verification methods.
+- **`SRV:`** Specifies a host and port for specific services and include a port at that IP.
+- **`PTR:`** For a reverse DNS lookup, when a user attempts to reach a domain name in their browser, a DNS lookup occurs, matching the domain name to the IP address. A reverse DNS lookup is the opposite of this process: it is a query that starts with the IP address and looks up the domain name. 
 
 The zone file at each DNS server needs to be up to date. If the data inside a Secondary DNS server is too old, it won’t be valid anymore and will be deleted. This will leave the network with one less DNS server that could answer queries.
 
@@ -33,8 +33,8 @@ fierce --domain <DOMAIN> --dns-servers <DNS_IP>
 
 ### How to protect
 
-The simplest way to secure zone transfers is to restrict AXFR requests to trusted IP addresses. You can do it in your DNS server configuration or on your firewall. You can additionally use transaction signatures.
+- Restrict AXFR requests to trusted IP addresses. You can do it in your DNS server configuration or on your firewall
+- Additionally use transaction signatures.
+- Using the Whitelisting technique(Rule of Least Privilege and place the IPs of appropriate users) for your Secondary DNS servers.
 
-Using the Whitelisting technique(Rule of Least Privilege and place the IPs of appropriate users) for your Secondary DNS servers. That way, only their IP addresses will be inside a whitelist, and only they can get access to the zone file and the new DNS changes.
-
-It is important to use supported file formats, double check DNS records, and audit firewall settings to make sure they are not blocking certain types of traffic.
+It's important to use supported file formats, double check DNS records, and audit firewall settings to make sure they are not blocking certain types of traffic.

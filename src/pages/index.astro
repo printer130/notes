@@ -2,16 +2,35 @@
 import BaseHead from "@components/BaseHead.astro";
 import One from "@layouts/One.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
+
+import NotesBufferOverflow from '@components/NotesBufferOverflow.astro'
+import NotesTripJourny from '@components/NotesTripJourny.astro';
+import NotesVulnerabilities from '@components/NotesVulnerabilities.astro';
+
 ---
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+			ul li {
+				display: flex;
+				list-style: none;
+			}
+			ul li :global(time) {
+				flex: 0 0 130px;
+				font-style: italic;
+				color: #595959;
+			}
+			ul li a:visited {
+				color: #8e32dc;
+			}
+		</style>
   </head>
   <One>
-    <main>
-      MAIN
-    </main>
+    <NotesVulnerabilities />
+		<NotesBufferOverflow />
+		<NotesTripJourny />
   </One>
 </html>
