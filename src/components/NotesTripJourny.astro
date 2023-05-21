@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import { TRIP } from "src/consts";
+import Title from "./Title.astro";
+
+const topTRIP = (await getCollection(TRIP)).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+---
+
+<section>
+  <Title>Trip journy</Title>
+  <ul>
+      {
+        topTRIP.map(post => {
+          return <li>
+            <a href={`/${TRIP}/${post.slug}/`}>{post.data.title}</a>
+            </li>
+        })
+      }
+  </ul>
+</section>
