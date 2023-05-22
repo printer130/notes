@@ -39,17 +39,9 @@ DNS Zone Transfers
 Host, Port, Services
  - nmap
 
-
-## First Lab
-
 ### Info
 Windows Recon: Nmap Host Discovery
 Winwos Reconnaissance: SMB
-
-### Tool
-bwall/ircsnapshot
-johnTheRipper
-Known Hosts hashcat
 
 # Footprinting and scanning
 
@@ -77,11 +69,9 @@ http
 
 # Enumeration
 
-## SMB
+## SMB (Server Message Block)
 
 ### Windows Discover and mount
-
-Its fileshareing in a network, occurs in office, enterprices
 
 How to mount in powershell:
 
