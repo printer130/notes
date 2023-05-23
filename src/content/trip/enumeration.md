@@ -70,7 +70,6 @@ http
 
 # Enumeration
 
-
 ### FTP
 
 File transfer protocol uses TCP port 21.
