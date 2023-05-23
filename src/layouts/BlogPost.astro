@@ -1,34 +1,25 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '@components/BaseHead.astro';
 import FormattedDate from '@components/FormattedDate.astro';
 import { TOP_VULNERALIBILITIES } from 'src/consts';
 
 type Props = CollectionEntry<typeof TOP_VULNERALIBILITIES>['data'];
-
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
-	<body>
-		<article>
-			{heroImage && <img class="w-full bg-cover" width={720} height={360} src={heroImage} alt={title} />}
-			<section class="px-4">
-			<h2 class="title">{title}</h2>
-			<FormattedDate date={pubDate} />
-			{
-				updatedDate && (
-					<div class="">
-						Last updated on <FormattedDate date={updatedDate} />
-						</div>
-						)
-					}
-			<p>{description}</p>
-			<slot />
-		</section>
-		</article>
-	</body>
-</html>
+<article>
+	{heroImage && <img class="w-full bg-cover" width={720} height={360} src={heroImage} alt={title} />}
+	<section class="px-4">
+	<h2 class="title">{title}</h2>
+	<FormattedDate date={pubDate} />
+	{
+		updatedDate && (
+			<div class="">
+				Last updated on <FormattedDate date={updatedDate} />
+				</div>
+				)
+			}
+	<p>{description}</p>
+	<slot />
+</section>
+</article>

@@ -3,6 +3,8 @@ title: "Buffer Overflow"
 description: ""
 pubDate: "Jul 08 2022"
 heroImage: "/xlrf.png"
+banner: "my_banner"
+slug: 'buffer-overflow'
 ---
 
 ### Example

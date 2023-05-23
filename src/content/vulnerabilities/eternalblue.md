@@ -3,7 +3,10 @@ title: "EternalBlue"
 description: ""
 pubDate: "Jul 03 2022"
 heroImage: "/ldapi.jpg"
+tag: ["windows", "eternal blue"]
 ---
+
++
 
 CVE-2017-0144
 

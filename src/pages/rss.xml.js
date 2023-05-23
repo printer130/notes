@@ -1,4 +1,4 @@
-import rss from '@astrojs/rss';
+/* import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION, TOP_VULNERALIBILITIES, BUFFER_OVERFLOW } from '../consts';
 
@@ -10,10 +10,10 @@ export async function get(context) {
 		site: context.site,
 		items: posts.map((post) => ({
 			...post.data,
-			link: `/${TOP_VULNERALIBILITIES}/${post.slug}/`,
+			link: `/${post.slug}/`,
 		})),
 	});
-}
+} */
 /* 
 export async function get(context) {
 	const posts = await getCollection(BUFFER_OVERFLOW);

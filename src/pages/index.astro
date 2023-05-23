@@ -6,11 +6,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
 import NotesBufferOverflow from '@components/NotesBufferOverflow.astro'
 import NotesTripJourny from '@components/NotesTripJourny.astro';
 import NotesVulnerabilities from '@components/NotesVulnerabilities.astro';
+import NotesEscalation from "@components/NotesEscalation.astro";
+import NotesPostExploitation from "@components/NotesPostExploitation.astro";
 
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
@@ -18,5 +20,7 @@ import NotesVulnerabilities from '@components/NotesVulnerabilities.astro';
     <NotesVulnerabilities />
 		<NotesBufferOverflow />
 		<NotesTripJourny />
+    <NotesEscalation />
+    <NotesPostExploitation />
   </One>
 </html>

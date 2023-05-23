@@ -3,6 +3,8 @@ title: "RDP"
 description: ""
 pubDate: "Jul 03 2022"
 heroImage: "/ldapi.jpg"
+tag: ["windows", "RDP"]
+
 ---
 
 ## Information

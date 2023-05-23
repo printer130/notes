@@ -3,6 +3,7 @@ title: "Enumeration"
 description: "A resume from INE Learning Path for eJPT cert and some self notes to get success"
 pubDate: "May 12 2023"
 heroImage: "/enumeration.png"
+slug: "trip/enumeration"
 ---
 
 ## Passive information gathering

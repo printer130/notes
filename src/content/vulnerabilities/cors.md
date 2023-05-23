@@ -1,8 +1,11 @@
 ---
+
 title: "Cross-Origin Resource Exchange (CORS)"
 description: "It allows servers to specify who can access its assets and which HTTP request methods are allowed from external resources."
 pubDate: "Jul 08 2022"
-heroImage: "/cors.png"
+heroImage: "/corss.png"
+slug: "vulnerabilities/cors"
+
 ---
 
 ### Information

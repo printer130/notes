@@ -3,6 +3,8 @@ title: "Windows privilege escalation"
 description: ""
 pubDate: "Jul 03 2022"
 heroImage: "/ldapi.jpg"
+slug: 'windows'
+
 ---
 
 # kernel exploit

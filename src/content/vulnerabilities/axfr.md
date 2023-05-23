@@ -1,8 +1,11 @@
 ---
+
 title: "Full Zone Transfer (AXFR)"
 description: "It is a method of sharing DNS records from the primary DNS server to the secondary DNS servers. If you already have set up all the DNS zones and you just make changes to the primary DNS zone, then it will be an IXFR zone transfer"
 pubDate: "Jul 08 2022"
-heroImage: "/xlrf.png"
+heroImage: "/AXFR.png"
+slug: 'axfr'
+
 ---
 
 ### Information:

@@ -6,7 +6,7 @@ html, body {
 h2 {
   color: rgba(255, 0, 0, 0.9);
   font-size: 1.8rem;
-  padding-top: 2rem;
+  padding-top: 1.4rem;
   font-weight: bold;
 }
 
@@ -44,8 +44,12 @@ li :global(time) {
   color: #595959;
 }
 
-li a:visited {
+/* li a:visited {
   color: #8e32dc;
+} */
+
+a:hover {
+  color:rgba(255, 0, 0, 0.78)
 }
 
 p {

@@ -3,10 +3,18 @@
 
 export const SITE_TITLE = 'Misconfigured notes';
 
-export const SITE_DESCRIPTION = 'Top 10 vulnerabilities from owasp!';
+export const SITE_DESCRIPTION = 'Top vulnerabilities from owasp!';
 
-export const TOP_VULNERALIBILITIES = 'top-vulnerabilidades'
-
+export const TOP_VULNERALIBILITIES = 'vulnerabilities'
 export const BUFFER_OVERFLOW = 'buffer-overflow'
-
 export const TRIP = 'trip'
+export const ESCALATION = 'escalation'
+export const POST_EXPLOITATION = 'post-exploitation'
+
+export const ENTRIES = {
+  TOP_VULNERALIBILITIES: TOP_VULNERALIBILITIES,
+  BUFFER_OVERFLOW: BUFFER_OVERFLOW,
+  POST_EXPLOITATION: POST_EXPLOITATION,
+  ESCALATION: ESCALATION,
+  TRIP: TRIP
+}

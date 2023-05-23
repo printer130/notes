@@ -3,6 +3,7 @@ title: "CSS Injection"
 description: "An attacker manages to upload malicious CSS code to your website which will run on your visitors browsers."
 pubDate: "Jul 08 2022"
 heroImage: "/cssi.png"
+slug: 'vulnerabilities/cssi'
 ---
 
 ### How to Attack

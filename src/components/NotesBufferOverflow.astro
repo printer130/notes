@@ -16,7 +16,7 @@ const topOverFLow = (await getCollection(BUFFER_OVERFLOW)).sort(
         topOverFLow.map(post => {
           return <li>
             <FormattedDate date={post.data.pubDate} />
-            <a href={`/${BUFFER_OVERFLOW}/${post.slug}/`}>{post.data.title}</a>
+            <a href={`/${post.slug}`}>{post.data.title}</a>
             </li>
         })
       }
