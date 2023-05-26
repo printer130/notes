@@ -1,74 +1,78 @@
 ---
+
 title: "Enumeration"
 description: "A resume from INE Learning Path for eJPT cert and some self notes to get success"
 pubDate: "May 12 2023"
 heroImage: "/enumeration.png"
 slug: "trip/enumeration"
+
 ---
 
 ## Passive information gathering
 
-WAF
-- WAFWOOF Github tool.
+**WAF:** WAFWOOF Github tool.
 
 Subdomain Enumeration
-- Gobuster
-- wfuzz
-- etc
 
-Google Dorks -
+    - Gobuster
+    - wfuzz
+    - etc
+
+**Google Dorks**
 - http://exploit-db.com
 - site: gov.* intitle: "index of" *.csv passwords
 
-Email Harvesting
+**Email Harvesting**
 
-- theHarvester
-  * The tool gathers names, emails, IPs, subdomains, and URLs by using
-multiple public resources that include:
+    - theHarvester
+    # The tool gathers names, emails, IPs, subdomains, and URLs by using
+    multiple public resources that include:
 
-Leaked password dbs
-- haveibeenpwned.com
-- firepwd
+**Leaked password dbs**
+
+    - haveibeenpwned.com
+    - firepwd
 
 ## Active information gathering
 
 DNS Zone Transfers
-- dnsenum
-- dig
-- fierce
 
-Host, Port, Services
- - nmap
+    - dnsenum
+    - dig
+    - fierce
+
+    Host, Port, Services
+    - nmap
 
 ### Info
+
 Windows Recon: Nmap Host Discovery
 Winwos Reconnaissance: SMB
 
-# Footprinting and scanning
-
-## Mapping a network
+## Footprinting and scanning
 
 ### Protocol
 What protocol matches MAC addresses to IP addresses?
 
-arp
-smb
-icmp
-http
+**arp**
+**smb**
+**icmp**
+**http**
 
 ### Tools
-- Wireshark
-- ARP-SCAN
-- PING
-- FPING
-- NMAP nmap -sn 10.10.33.14/24
-- ZENMAP (GUI)
-- RustScan
-- Masscan
 
-[connection tcp](https://www.ictshore.com/wp-content/uploads/2016/12/1017-02-TCP_States_in_a_connection.png)
+    - Wireshark
+    - ARP-SCAN
+    - PING
+    - FPING
+    - NMAP nmap -sn 10.10.33.14/24
+    - ZENMAP (GUI)
+    - RustScan
+    - Masscan
 
-# Enumeration
+<img src="https://www.ictshore.com/wp-content/uploads/2016/12/1017-02-TCP_States_in_a_connection.png" width=864px style="background-color: #eee" >
+
+## Enumeration
 
 ### FTP
 
@@ -101,12 +105,21 @@ $nmap target -p22 --script ssh-auth-methods
 #attack
 
 $hydra -l student -P /usr/rockyou.txt target ssh(protocol)
-```
 
+# How many “encryption_algorithms”?
+nmap --script ssh2-enum-algos 192.201.39.3
+
+# What is the ssh-rsa host key being used by the SSH server.
+nmap --script ssh-hostkey --script-args ssh_hostkey=full 192.201.39.3
+
+# Which authentication method is being used by the SSH server for user “rosa”.
+nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=rosa" 192.201.39.3
+```
 ### HTTP
 
 http target
 
+```bash
 find directorios default
 $dirb target
 
@@ -115,8 +128,11 @@ $nmap target -sCV -p80 --script http-headers
 - http-methods 
 - http-webdav-scan
 
+```
 
 ### SQL
+
+```bash
 
 $nmap target -sCV -p3306 --script=mysql-empty-password
 
@@ -126,11 +142,11 @@ $nmap target -sCV -p3306 --script=mysql-variables --script-args="mysqluser='root
 
 $nmap target -sCV -p3306 --script=mysql-audit --script-args="mysql-audit.username='root',mysql-audit.password='', mysql-audit.filename='/usr/share/nmap/nselib/data/mysql-cis.audit'"
 
-attack
+#attack
 
 $hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt target mysql(protocol)
 
-WINDOWS
+#WINDOWS
 
 $nmap target -p1433 --script ms-sql-info
 
@@ -146,3 +162,4 @@ $nmap target -p 1433 --script ms-sql-dump-hashes --script-args mssql.username=ad
 
 $nmap target -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xp-cmdshell.cmd="type c:\flag.txt"
 
+```

@@ -116,6 +116,5 @@ getprivs
 
 getuid # The administrator acc
 
-# 
 ```
 

