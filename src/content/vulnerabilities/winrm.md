@@ -8,7 +8,7 @@ tag: ["windows", "winrm"]
 
 ## Information
 
-- Windows Remote Management is a remote management protocol that can be used to remote access with wisdows system over HTTP(S).
+- Windows Remote Management is a remote management protocol that can be used to remote access with windows system over HTTP(S).
 
 - Microsoft implemented WinRM in to Windows in order to make life easier for sysadmins.
 
