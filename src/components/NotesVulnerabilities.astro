@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import { TOP_VULNERALIBILITIES } from "src/consts";
 import Title from "./Title.astro";
-import FormattedDate from "./FormattedDate.astro";
 
 const topVulnerabilities = (await getCollection(TOP_VULNERALIBILITIES)).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -14,7 +13,7 @@ const topVulnerabilities = (await getCollection(TOP_VULNERALIBILITIES)).sort(
     {
       topVulnerabilities.map((post) => (
         <li>
-          <FormattedDate date={post.data.pubDate} />
+        
           <a href={`/${post.slug}`}>{post.data.title}</a>
         </li>
       ))
