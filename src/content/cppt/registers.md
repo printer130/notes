@@ -57,6 +57,13 @@ Therefore the **PUSH** subtracts 4 or 8, inorder to point to a lower memory loca
 
 + In the little-endian the **LSB** is stored at the lower memory address, while the most significant byte is at the highest memory address.
 
+```bash
+
+# Address=77267D3B
+OK -> \x3B\x7D\x26\x77
+BAD -> \x77\x26\x7D\x3B
+```
+
 ## Security implementations.
 
 ### Address Space layout Randomization **(ASLR)**.
