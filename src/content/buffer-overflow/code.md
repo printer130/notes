@@ -20,6 +20,7 @@ Example:
 !mona config -set workingfolder C:/User/printer/Desktop
 
 # Cuando payload = offset + eip + b"C"*200 van al espcreamos nuestro bytearray para ver badchars lo pasamos con impacket-smbserver
+# impacket-smbserver smbfolder $(pwd) -smb2support
 
 !mona bytearray -cpb "\x00" -> insted 'C' string
 
