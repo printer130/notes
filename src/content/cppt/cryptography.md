@@ -63,6 +63,11 @@ A public key, freely distributed, and a corresponding private key which is to be
 
 **Common extensions:** .DER .PEM .P7C .PFX
 
+```bash
+# Campo importante: Common Name FQDN del servidor a su nombre; myblog.com o 127.0.0.1:8081
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
+```
+
 ### PGP (Public Good Privacy)
 
 - Your own secret key stored encrypted with a passphrase.
