@@ -20,6 +20,14 @@ h4 {
   color: rgba(255, 0, 0, 0.9);
 }
 
+img {
+  margin: 0 auto;
+}
+
+p {
+  width: 100%;
+}
+
 time {
   font-size: .79rem;
   opacity: .9;
@@ -42,6 +50,10 @@ li :global(time) {
   flex: 0 0 130px;
   font-style: italic;
   color: #595959;
+}
+
+p {
+  display: block;
 }
 
 /* li a:visited {

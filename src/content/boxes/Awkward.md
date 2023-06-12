@@ -13,9 +13,6 @@ text={`
 $ rustscan -a 10.10.11.185 -g -- -A -sS -n
 10.10.11.185 -> [22,80]
 
-```
-
-```bash
 $ rustscan -a 10.10.11.185  -- -A -sCV -n
 Host is up, received syn-ack (0.22s latency).
 

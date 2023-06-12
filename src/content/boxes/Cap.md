@@ -39,7 +39,7 @@ ftp 10.10.10.245
 pero sin contraseña no hacemos mucho, ingresamos a la página y vemos lo siguiente
 
 <img
-src='https://res.cloudinary.com/djc1umong/image/upload/v1686606224/cap_main_page_e1ofvh.webp'
+href='https://res.cloudinary.com/djc1umong/image/upload/v1686606224/cap_main_page_e1ofvh.webp'
 width={696}
 height={158}
 />
@@ -60,7 +60,7 @@ tshark -r 0.pcap 2&gt;/dev/null
 ```
 
 <img
-src='https://res.cloudinary.com/djc1umong/image/upload/v1686606256/cap_tshark_e5mjpt.webp'
+href='https://res.cloudinary.com/djc1umong/image/upload/v1686606256/cap_tshark_e5mjpt.webp'
 width={760}
 height={108}
 />

@@ -144,7 +144,7 @@ con estas credenciales iniciamos sesión, vemos una pestaña de configuración d
 
 En la línea 109: Encontramos un archivo de configuración de la base de datos <i>grafana</i>, sin embargo no conocemos la ruta absoluta así que lo googleamos.
 
-Yo lo encontre <Anchor src='https://stackoverflow.com/questions/65860003/physical-location-of-grafana-dashboards'>aquí</Anchor>:
+Yo lo encontre <a targeT='_blank' href='https://stackoverflow.com/questions/65860003/physical-location-of-grafana-dashboards'>aquí</a>:
 
 The default folder of the dashboard is /var/lib/grafana. If you navigate to the folder, you will find a file name grafana.db.
 

