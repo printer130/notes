@@ -1,9 +1,9 @@
 ---
-title: "Architecture Fundamentals"
+title: "Registers"
 description: ""
 pubDate: "May 12 2023"
 heroImage: "/enumeration.png"
-slug: "cppt/architecture"
+slug: "cppt/registers"
 
 ---
 

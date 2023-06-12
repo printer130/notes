@@ -1,0 +1,23 @@
+---
+import Title from "./Title.astro";
+import { getCollection } from "astro:content";
+import { CPPT } from "src/consts";
+
+const result = (await getCollection(CPPT)).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+---
+
+<section>
+  <Title>CPPT</Title>
+  <ul>
+    {
+      result.map((post) => (
+        <li>
+          <a href={`/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,11 +1,12 @@
 ---
+
 title: "Windows Passwords"
 description: ""
 pubDate: "May 12 2023"
 heroImage: "/"
-slug: "windows_passwords"
----
+slug: "cppt/windows_passwords"
 
+---
 
 All the passwords in windows (except in Domain Controller configuration) are stored in a configuration database called SAM stored as a registry file.
 

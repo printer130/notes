@@ -1,5 +1,5 @@
 ---
-title: "Buffer Overflow"
+title: "Buffer Overflow (hands-on)"
 description: ""
 pubDate: "Jul 08 2022"
 heroImage: "/xlrf.png"

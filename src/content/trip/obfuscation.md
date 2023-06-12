@@ -1,13 +1,9 @@
 ---
-
 title: "Obfuscation"
 description: "Evasion with Shellter, obfuscation PowerShell Code."
 pubDate: "May 12 2023"
 heroImage: "/asd.png"
 slug: "trip/obfuscation"
-
-qwoeikojsighjdfai sdf  ~~+`][+``^^+**Ḉ
-
 ---
 
 

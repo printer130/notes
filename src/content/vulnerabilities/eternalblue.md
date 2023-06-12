@@ -6,8 +6,6 @@ heroImage: "/ldapi.jpg"
 tag: ["windows", "eternal blue"]
 ---
 
-+
-
 CVE-2017-0144
 
 - It's a collection of Windows vulnerabilities and exploits that allow RCE.
