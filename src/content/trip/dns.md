@@ -14,11 +14,10 @@ Almacenan y proporcionan información de registros DNS. Los servidores DNS recur
 
 **DNS Recurrente:** Los clientes normalmente no realizan consultas directamente a los servicios de DNS autoritativo. Se conectan a un DNS solucionador o un servicio de DNS recurrente que funciona como el conserje de un hotel si bien no es dueño de los registros DNMS, funciona como un intermediario que obtiene la información dek DNS por usted.
 
+
 Si un DNS recurrente tiene una referencia de DNS en caché o almacenada durante un período, entonces responde la consulta de DNS mediante el suministro de la información IP o la fuente. De lo contrario, pasa la consulta a uno o más servidores de DNS autoritativo para encontrar la información.
 
 <img src="https://res.cloudinary.com/djc1umong/image/upload/v1686087667/Screenshot_from_2023-06-06_17-40-32_ldgtlm.png" alt="DNS">
-
-
 
 Usuario del dominio -> ASRepRoast Attack
 
@@ -45,7 +44,6 @@ GETUsersSPNs.py -> kerberoasting Attack
 Desplegar un SMB Relay en un entorno empresarial con 'reponder' y 'ntlmrelayx.py' e interceptar la conexion de un usuario sobre un equipo fijado como target -> para dumpear la SAM el usuario posea como minimo privilegios de administrador.
 
 Si un Principal dispone de los privilegios 'GetChanges' y 'GetChangesAll' se otorga la capacidad -> DCSync 
-
 
     - DnsAdmins
     - SeLoadDriverPrivilege

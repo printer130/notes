@@ -6,6 +6,31 @@ heroImage: "/AXFR.png"
 slug: 'axfr'
 ---
 
+## Usefull comands
+
+```bash
+# Simple y poderosa herramienta
+nslookup
+server target
+set q=NS
+target.com
+exit
+
+# Coger las direcciones de lo encontrado
+nslookup
+server target
+primary.target.com
+secondary.target.com
+exit
+
+# Rcords por ejempoo MX
+nslookup
+server target
+set q=MX
+target.com
+exit
+```
+
 ### Information:
 
 - **`SOA:`** Indicates the start of authority, stores important information about a domain or zone such as the email address of the administrator.
@@ -26,10 +51,21 @@ Set up newly added Secondary DNS servers. They need to get the DNS records from 
 ### How to Attack
 
 ```bash
+
+#HOST
+host -t axfr wit_rap.com 192.214.31.3
+# ---
+dig @192.214.31.3 wit_rap.com -t AXFR +nocookie
+# ----
 dig +short ns <target>
 dig axfr @<DNS_IP>
 dig axfr @<DNS_IP> <DOMAIN>
 fierce --domain <DOMAIN> --dns-servers <DNS_IP>
+What is the subdomain for which only reverse dns entry exists for wit_rap.com? wit_rap owns the IP address range: 192.168..
+
+# What is the subdomain for which only reverse dns entry exists for wit_rap.com? wit_rap owns the IP address range: 192.168..
+dig axfr -x 192.168 @192.214.31.3
+
 ```
 
 ### How to protect
