@@ -1,6 +1,12 @@
 html, body {
   background-color: #050014;
   color: #eee;
+  letter-spacing: .25px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 h2 {
@@ -26,6 +32,7 @@ img {
 
 p {
   width: 100%;
+  letter-spacing: .315px;
 }
 
 time {

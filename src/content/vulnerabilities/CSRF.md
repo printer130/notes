@@ -6,10 +6,6 @@ heroImage: "/csrf.png"
 slug: "vulnerabilities/csrf"
 ---
 
-### How to Attack
-
-::
-
 ### How to protect
 
 - CSRF tokens
