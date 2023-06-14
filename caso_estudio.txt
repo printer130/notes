@@ -1,0 +1,104 @@
+
+------------------------------------------------
+[Confidencialidad]
+Una empresa de servicios financieros llamada "FinSafe" almacena información
+confidencial de sus clientes, incluyendo datos personales, información
+financiera y registros de transacciones. Recientemente, se descubrió que un
+empleado descontento copió datos confidenciales de los clientes y los
+compartió con un competidor.
+
+1.- ¿Cómo se ve comprometida la confidencialidad de la información en este caso?
+
+- Los datos pueden ser expuestos a terceros.
+
+- Responsabilidad legal y costos financieros.
+
+- Accesos no autorizados.
+
+- Pérdida de reputación.
+
+2.- ¿Cuáles son las posibles consecuencias para FinSafe y sus clientes?
+
+- Riesgo de robo de identidad y fraudes a los clientes (e.g. Phising).
+
+- Multas y sanciones por violación de la privacidad.
+
+- Acciones legales contra FinSafe.
+
+3.- ¿Qué medidas podría haber implementado FinSafe para prevenir este tipo de
+incidente?
+
+- Controles de acceso
+
+- Establecer politicas de seguridad para el acceso y disposición de los datos.
+
+- Limitar el acceso sensible a las empleados de modo que un solo empleado no tenga acceso a todo el sistema.
+
+----------------------------------------------
+[Integridad]
+Una empresa de fabricación llamada "TechPro" utiliza un sistema de gestión de
+inventario para controlar y rastrear sus productos. Recientemente, un
+empleado malicioso alteró intencionalmente la cantidad de productos en el
+inventario, registrando números incorrectos y causando desajustes entre los
+registros y la cantidad real de productos.
+
+1.- ¿De qué manera se viola la integridad de la información en este caso?
+
+- Posible acceso a la base de datos no autorizado.
+
+- Registros alterados malintencionados.
+
+- Desajustes de los registros y la cantidad real de productos.
+
+- Perdida de confianza en TechPro.
+
+2.- ¿Cómo puede afectar esto las operaciones de TechPro y la confianza de sus
+clientes?
+
+- Posible perdida de ganancias.
+
+- Clientes molestos hacia la plataforma.
+
+- Inventario incorrecto.
+
+3.- ¿Qué medidas podría haber implementado TechPro para prevenir o detectar este
+tipo de manipulación de datos?
+
+- Establecer politicas de seguridad para el acceso y disposición de los datos.
+
+- Establecer accesos basado en roles a la base de datos.
+
+- Monitorear los registros y detectar posibles anomalias.
+
+-------------------------------------------------------------
+[Disponibilidad]
+Una organización sin fines de lucro llamada "HelpingHands" depende de un
+sistema de gestión de voluntarios en línea para coordinar las actividades de
+sus voluntarios. Recientemente, el sistema experimentó una interrupción
+prolongada debido a una falla del servidor, lo que impidió que los
+voluntarios accedieran a la plataforma y participaran en las tareas
+programadas.
+
+1.- Describe cómo se ve afectada la disponibilidad en este caso.
+
+- Un servidor 'caido' en HelpingHands significa que la plataforma es inaccesible a los usuarios.
+
+- La organización HelpingHands no existe.
+
+2.- ¿Cuáles son las consecuencias potenciales para HelpingHands y su capacidad
+para brindar servicios a la comunidad?
+
+- Retraso para coordinar las actividades de sus voluntarios
+
+- Usuarios molestos, baja review en redes sociales.
+
+- Desconfianza de los usuarios hacia la plataforma.
+
+3.- ¿Qué medidas podría haber implementado HelpingHands para garantizar una mayor
+disponibilidad de su sistema?
+
+- Usar los servicios de la nube(e.g. Google Cloud Platform, AWS) como metodo de disponibilidad.
+
+- Agregar sistemas como 'balanceadores de carga'.
+
+- Monitorear el sistema para corregirlo rapidamente.
