@@ -89,8 +89,15 @@ Las organizaciones pequeñas normalmente compran muy pocas IPs es por eso que ha
 
 Herramientas que te automatizan.
 
-- Hostmap
 - Maltego
 - Foca
+- Shodan
+
+- Hostmap
 - Fierce
 - Dmitry
+- DNSdumpster
+- DNSEnum
+- DNSmap
+- Metagoofil
+- Recon-ng

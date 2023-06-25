@@ -80,7 +80,7 @@ What command can be used to show only WiFi traffic?
 tshark -r WiFi_traffic.pcap -Y "wlan"
 ```
 
-What command can be used only view the deauthentication packets?
+Comando para ver paquetes de deauthentication
 
 ```bash
 tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c"

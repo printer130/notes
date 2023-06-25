@@ -1,0 +1,32 @@
+Caso de estudio: Protección de la información en una empresa de comercio
+electrónico
+Una empresa de comercio electrónico llamada "E-Shopper" se dedica a la
+venta de productos a través de su plataforma en línea. La empresa maneja
+una gran cantidad de información confidencial, como datos personales de
+los clientes, información de tarjetas de crédito y datos comerciales.
+Recientemente, E-Shopper ha experimentado una serie de incidentes de
+seguridad que han puesto en riesgo la confidencialidad, integridad y
+disponibilidad de su información. Estos incidentes incluyen:
+1. Acceso no autorizado: Un hacker logró ingresar al sistema de EShopper y acceder a la base de datos de clientes, obteniendo
+información personal, como nombres, direcciones y números de
+teléfono.
+2. Modificación de datos: Otro atacante pudo alterar los precios de
+los productos en el sitio web de E-Shopper, lo que resultó en la
+venta de productos a precios incorrectos y pérdida de ingresos para
+la empresa.
+3. Denegación de servicio: E-Shopper fue víctima de un ataque de
+denegación de servicio distribuido (DDoS) que paralizó su sitio web
+durante horas, lo que resultó en una falta de disponibilidad y
+pérdida de clientes.
+Preguntas:
+1. Explica cómo se ve comprometida la confidencialidad en cada uno de
+los incidentes descritos.
+2. ¿De qué manera se viola la integridad de la información en cada
+incidente?
+3. Describe cómo se ve afectada la disponibilidad en el caso del ataque
+de denegación de servicio.
+4. Proporciona ejemplos de medidas que E-Shopper podría haber
+implementado para prevenir o mitigar cada uno de los incidentes.
+Recuerda que los estudiantes deben responder a cada pregunta considerando
+los principios de confidencialidad, integridad y disponibilidad. ¡Espero
+que este caso de estudio sea útil para tu clase de ciberseguridad!

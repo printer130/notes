@@ -34,7 +34,6 @@ net use * /delete
 net use Z: \\10.4.17.133\C$ smbserver_771 /user:administrator
 ```
 
-
 ### smbmap Recon
 
 ```bash
@@ -78,6 +77,10 @@ $smbclient -L target -N
 
 ...-h
 ...enumerate
+
+######################################
+# Despues de montar podemos ver en ls -lsa /media/k_share
+sudo mount.cifs //target/c /media/k_share user=,pass=
 
 # Dictionary attack
 
