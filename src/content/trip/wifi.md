@@ -13,6 +13,11 @@ slug: "wi/fi"
 <img src='https://res.cloudinary.com/djc1umong/image/upload/v1685504739/Screenshot_from_2023-05-30_23-45-31_akzecv.png' />
 
 ```bash
+## cambiar nuestro mac para camuflarse
+macchanger -h
+sudo airmon-ng check
+sudo airmon-ng check kill
+
 ifconfig wlan0 down
 
 iwconfig wlan0
@@ -24,8 +29,8 @@ iw dev wlan0 interface add mon0 type monitor
 
 #########################################
 sudo ip link set wlp1s0 down
-sudo iw wlp1s0 set monitor none
-;sudo iw wlp1s0 set type managed
+#sudo iw wlp1s0 set monitor none
+#;sudo iw wlp1s0 set type managed
 ;sudo iw wlp1s0 set type monitor
 sudo ip link set wlp1s0 up
 ###########################
