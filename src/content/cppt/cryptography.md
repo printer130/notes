@@ -102,6 +102,20 @@ PGP will first genereate a symmetric key and then encrypt the symmetric key with
 
 PGP puts together the ideas of symmetric key encyprion, public key encryption, and hash functions, and also text comprenssion, in a practical and usable way to enable you to sign or encrypt email.
 
+```bash
+gpg --gen-key
+
+# firmar llave
+gpg --sign-key email@example.com
+
+# Exportando llave publica
+gpg --armor --export testtest@gmail.com > public_key.asc
+
+#Encriptando mensage
+gpg --clear-sign --output signed_message.asc msg.txt
+
+gpg --encrypt --sign --armor -r person@email.com name_of_file
+```
 
 ### (SHELL) Secure Shell
 
