@@ -84,7 +84,6 @@ It allows to log into a system as root user without typing the correct passwrod 
 
 The next step is  **Pass-the-hash** or **Crack the hash**
 
-
 ### CPU Crack - JtR
 
 First entry is username and second entry is the hash using John The Ripper or an another good tool is hashcat but uses GPU intead CPU.
