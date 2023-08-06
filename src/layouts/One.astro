@@ -1,0 +1,25 @@
+---
+import BaseHead from '@components/BaseHead.astro'
+import Footer from '@components/Footer.astro'
+import Header from '@components/Header.astro'
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="text-xl relative">
+    <Header />
+    <main
+    class="max-w-4xl m-auto w-full font-['Open_Sans'] px-4 whitespace-wrap isolate ">
+
+    <div class="opacity-10 inset-0 bg-[url('/noise.webp')] mix-blend-overlay absolute -z-20" />
+    
+    {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+      <h1 class="title">{title}</h1>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

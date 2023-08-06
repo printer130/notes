@@ -1,0 +1,17 @@
+---
+export interface Props {
+  date: Date
+}
+
+const { date } = Astro.props
+---
+
+<time datetime={'Jul 08 2022'}>
+  {
+    new Date().toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    })
+  }
+</time>

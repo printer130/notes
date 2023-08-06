@@ -1,0 +1,16 @@
+---
+import BaseHead from '@components/BaseHead.astro'
+import Boxes from '@components/Boxes.astro'
+import One from '@layouts/One.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <One>
+    <Boxes />
+  </One>
+</html>

@@ -1,0 +1,28 @@
+---
+import BaseHead from '@components/BaseHead.astro'
+import One from '@layouts/One.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts'
+import NotesBufferOverflow from '@components/NotesBufferOverflow.astro'
+import NotesTripJourny from '@components/NotesTripJourny.astro'
+import NotesVulnerabilities from '@components/NotesVulnerabilities.astro'
+import NotesEscalation from '@components/NotesEscalation.astro'
+import NotesPostExploitation from '@components/NotesPostExploitation.astro'
+import NotesNetwork from '@components/NotesNetwork.astro'
+import NotesCPPT from '@components/NotesCPPT.astro'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <One>
+    <NotesVulnerabilities />
+    <NotesBufferOverflow />
+    <NotesNetwork />
+    <NotesTripJourny />
+    <NotesCPPT />
+    <NotesEscalation />
+    <NotesPostExploitation />
+  </One>
+</html>

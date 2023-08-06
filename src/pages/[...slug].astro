@@ -1,0 +1,39 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import BlogPost from '@layouts/BlogPost.astro'
+import One from '@layouts/One.astro'
+import { BUFFER_OVERFLOW, ENTRIES } from 'src/consts'
+
+export async function getStaticPaths() {
+  const promisesArray: Promise<any>[] = []
+
+  for (const [index] of Object.entries(ENTRIES)) {
+    const res = getCollection(ENTRIES[index])
+    promisesArray.push(res)
+  }
+
+  const results = await Promise.all(promisesArray)
+
+  return results.map((postList) => {
+    return postList.map((post) => {
+      return {
+        params: {
+          slug: post.slug
+        },
+        props: post
+      }
+    })
+  })
+}
+
+type Props = CollectionEntry<typeof BUFFER_OVERFLOW>
+
+const post = Astro.props
+const { Content } = await post.render()
+---
+
+<One>
+  <BlogPost {...post.data}>
+    <Content />
+  </BlogPost>
+</One>

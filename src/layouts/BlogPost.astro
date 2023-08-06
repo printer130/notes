@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FormattedDate from '@components/FormattedDate.astro'
+import { TOP_VULNERALIBILITIES } from 'src/consts'
+
+type Props = CollectionEntry<typeof TOP_VULNERALIBILITIES>['data']
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+---
+
+<article class="font-light leading-relaxed font-['Inter']">
+  {
+    heroImage && (
+      <img
+        class="w-full bg-cover"
+        width={720}
+        height={360}
+        src={heroImage}
+        alt={title}
+      />
+    )
+  }
+  <section>
+    <h2 class="title">{title}</h2>
+    <FormattedDate date={pubDate} />
+    <p>{description}</p>
+    <slot />
+  </section>
+</article>

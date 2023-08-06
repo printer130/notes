@@ -1,0 +1,31 @@
+---
+/* const { p, title } = Astro.props
+ */ const questions = [
+  '¿De qué manera se viola la integridad de la información en cada incidente?',
+  'Describe cómo se ve afectada la disponibilidad en el caso del ataque de denegación de servicio.',
+  'Proporciona ejemplos de medidas que E-Shopper podría haber implementado para prevenir o mitigar cada uno de los incidentes. Recuerda que los estudiantes deben responder a cada pregunta considerando los principios de confidencialidad, integridad y disponibilidad.'
+]
+const title =
+  'Protección de la información en una empresa de comercio electrónico'
+const p =
+  'Una empresa de comercio electrónico llamada E-Shopper se dedica a la venta de productos a través de su plataforma en línea. La empresa maneja una g'
+---
+
+<h2>{title}</h2>
+<p>
+  {p}
+</p>
+<ul class="pl-6">
+  {
+    questions.map((q) => {
+      return (
+        <p>
+          <>
+            <i>1.</i>
+            <strong>{q}</strong>
+          </>
+        </p>
+      )
+    })
+  }
+</ul>

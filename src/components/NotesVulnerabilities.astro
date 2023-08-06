@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content'
+import { TOP_VULNERALIBILITIES } from 'src/consts'
+import Title from './Title.astro'
+import Link from './Link.astro';
+
+const topVulnerabilities = (await getCollection(TOP_VULNERALIBILITIES)).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
+
+---
+
+<section>
+  <Title>Vulnerabilidades</Title>
+  <ul>
+    {
+      topVulnerabilities.map((post) => (
+        <Link post={post}/>
+      ))
+    }
+  </ul>
+</section>
