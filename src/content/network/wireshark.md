@@ -134,3 +134,33 @@ model number of the device.
 tshark -r WiFi_traffic.pcap -Y "wlan.ta==5c:51:88:31:a0:3b && http" -Tfields -e
 http.user_agent
 ```
+#### FILTERS
+
+```bash
+wlan.bssid - Filtra por AP MAC address
+wlan_mgm.ssid - Muestra marcos de gestion relacionados con un SSID
+wlan.addr - Todos los frames "from" o "to" por un especifoco MAC
+wlan.da - Busca frames con un especifico direccion de destino
+wlan.sa - Busca frames con un especifico direccion fuente
+wlan.fc.wep - WEP Frames encriptados
+
+#### manitas
+# posibles clientes "beacons"
+wlan.fc.type_subtype == 8
+# buscamos el bssid 2c:00:ab:73:db:01
+wlan.fc.type_subtype != 8 && wlan.bssid == 2c:00:ab:73:db:01
+
+# Gesionar los frames por 3 subtipos asociados correspondientes respoctivamente y frames de autenticacion
+# Un subtipo igual a cero corresponde a un request de asociacion mientras que el uno corresponde a responses
+# Todos los frames de autenticacion estan identificados con el subtipo 11, B en notacion hex representa 11
+wlan.fc.type_subtype != 8 && wlan.bssid == 2c:00:ab:73:db:01 && wlan.fc.type == 0 && (wlan.fc.subtype == 0 || wlan.fc.subtype == 1 || wlan.fc.subtype == 0xB)
+
+#  wlan.fc.type == 2 -> filtra todos los data frames
+
+wlan.fc.type_subtype != 8 && wlan.bssid == 2c:00:ab:73:db:01 && wlan.fc.type == 2
+```
+
+<img src="https://res.cloudinary.com/djc1umong/image/upload/v1691366163/Screenshot_from_2023-08-06_19-54-57_scgsip.webp" alt="tipos de asociacion">
+
+[Documentacion de filtros](https://www.wireshark.org/docs/dfref/w/wlan.html)
+

