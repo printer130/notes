@@ -27,6 +27,8 @@ Cada campo esta anotado por la longitud de su byte
 </div>
 
 ```bash
+
+# Caffe-Latte Attack
 lsmod
 # basics #
 iwconfig
@@ -138,7 +140,6 @@ Despues de la authenticación una estacion necesita ser asociada por el AP, este
 
 El estandar 802.11 original especifica que hay 2 modos de autenticación diferentes.
 
-
 - Autenticación abierta
 - Autenticación de llave compartida
 
@@ -148,5 +149,32 @@ esta seccion muestra información sobre los clientes de la red
 
 <img src="https://res.cloudinary.com/djc1umong/image/upload/v1691031181/Screenshot_from_2023-08-02_22-52-47_mzhdsw.webp" alt="">
 
-
 [DB para brute-force](https://www.renderlab.net/projects/WPA-tables/)
+
+### Airbase-ng
+
+- Implementaciones de 
+
+```bash
+# Deprecated
+# brctl addbr br0
+# brctl addif br0 eth0
+# brctl addif br0 at0
+
+ip link add br0 type bridge
+ip link set dev eth0 master br0
+ip link set dev at0 master br0
+
+ifconfig eth0 0.0.0.0 up
+ifconfig at0 0.0.0.0 up
+ifconfig br0 192.168.0.10 up
+
+iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Disponible para conectarse a internet en este punto
+
+ip link set veth0 up
+ip link set veth0-br up
+```

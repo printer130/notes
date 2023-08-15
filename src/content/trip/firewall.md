@@ -6,18 +6,18 @@ heroImage: '/'
 slug: 'firewall'
 ---
 
-#### Procedimientos, Concinentización y Políticas
+### Procedimientos, Concinentización y Políticas
 
 Procedimientos contra eventos de seguridad que afecten la entidad/empresa.
 concientización de los usuarios/empleados.
 Políticas de Seguridad.
 
-#### Seguridad Física
+### Seguridad Física
 
 Protección física en CPDs.
 Protección de acceso físico para usuarios.
 
-#### Seguridad perímetral
+### Seguridad perímetral
 
 Protección del entorno o capa interna de la entidad empresa.
 
@@ -27,7 +27,7 @@ Protección del entorno o capa interna de la entidad empresa.
 - VPN
 - DMZ
 
-#### Seguridad en la red interna
+### Seguridad en la red interna
 
 Fortificación de seguridad en la red interna
 
@@ -36,14 +36,14 @@ Fortificación de seguridad en la red interna
   - HIDS => Host-based intrusion detection system
   - HIDS => Network intrusion detection system
 
-#### Seguridad a nivel de Servidor
+### Seguridad a nivel de Servidor
 
 - Sistemas Operativos (evitar Zero Days Exploits)
 - Getión de Aplicaciones
 - Servicios
 - Control de logs (kernel, registro tareas)
 
-#### Seguridad a nivel de Aplicación
+### Seguridad a nivel de Aplicación
 
 Protección de las aplicaciones o servicios que se encuentran expuestos al usuario
 
@@ -51,14 +51,14 @@ Protección de las aplicaciones o servicios que se encuentran expuestos al usuar
 - Mínimo provolegio (sudoers)
 - Actualización de aplicaciones
 
-#### Seguridad a nivel de Información
+### Seguridad a nivel de Información
 
 Protección de datos e información
 
 - Uso de cifrado en comunicaciones
 - Particiones cifradas
 
-#### Mínimo Provilegio Posible
+### Mínimo Provilegio Posible
 
 - Ejecución de aplicaciones
 - Lectura de archivos
@@ -67,7 +67,7 @@ Protección de datos e información
 - No privilegios de ADMINISTRATOR
 - No provilegios de ROOT
 
-#### Gestión de riesgos
+### Gestión de riesgos
 
 Enfoque estructurado para manejar la incertidumbre relativa a una
 amenaza, a través de una secuencia de actividades humanas que
@@ -139,7 +139,7 @@ systemctl restart firewalld.service
 
 ```
 
-#### Reglas iptables ejemplo
+### Reglas iptables ejemplo
 
 ```bash
 #!/usr/bin
@@ -197,3 +197,59 @@ iptables −A INPUT −p udp −−dport 10000 −j DROP
 echo " OK . Verifique que lo que se aplica con: iptables −L −n"
 # Fin del script
 ```
+
+### ¿Que tipo de WAF esta presente?
+
+**Valores de cookie:** Algunos sistemas de WAF revelan su presencia a traves de cookies, liberan su propio cookie durante las comunicaciones HTTP
+
+**Citrix Netscaler**
+
+Usa algunas respuestas de cookie diferente en el HTTP como: *ns_af* o *citrix_ns_id* o *NSC*
+
+**F5 BIG-IP ASM**
+
+Application Security Manager usa cookies que empiezan por *TS* y sigue de un string que respeta el siguiente regex: *^TS[a-zA-Z0-9]{3,6}*
+
+**Barracuda**
+
+Usa dos cookies *barra_counter_session* y *BNI__BARRACUDA_LB_COOKIE*
+
+**Header Rewrite:** Algunos waf reescriben la cabezera HTTP. Por lo general estos modifican el encabezado del servidor para engañar a los atacantes.
+
+```bash
+HTTP/1.1 200 ok
+Server: Apache (Unix)
+Content-Type: text/html
+Content-Length: 2143
+
+####
+
+HTTP/1.1 404 Not Found
+Server: Netscape/9.2
+Content-Type: text/html
+Content-Length: 263
+```
+
+**Respuesta en el cuerpo HTTP:** Es posible detectar la presencia de WAF en el cuerpo de
+
+```bash
+# Una pagina de bloqueo, tu request disparo una alerta
+
+# mod_security
+
+#dotDefender Tu request bloqueada
+
+```
+
+**Close Connection:** Deja caer la conexion si el WAF detecta requests maliciosos.
+
+Es posible implementar mod_security para detectar ataques de fuerza bruta
+
+La mayoria de herramietnas de ataque bruta tienen la capacidad de detectar el tipo WAF, como [waffw00f](https://github.com/EnableSecurity/wafw00f) para detectar los WAF usa las tecnicas mencionadas:
+
+- Cookies
+- Server Cloaking
+- Response Codes
+- Drop Action
+- Pre-Built-In Rules
+

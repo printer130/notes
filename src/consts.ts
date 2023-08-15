@@ -14,6 +14,7 @@ export const NETWORK = 'network'
 export const CPPT = 'cppt'
 export const BOXES = 'boxes'
 export const POWERSHELL = 'powershell'
+export const ANDROID = 'android'
 
 export const ENTRIES = {
   TOP_VULNERALIBILITIES: TOP_VULNERALIBILITIES,
@@ -24,5 +25,6 @@ export const ENTRIES = {
   NETWORK: NETWORK,
   CPPT: CPPT,
   POWERSHELL: POWERSHELL,
-  BOXES: BOXES
+  BOXES: BOXES,
+  ANDROID: ANDROID
 }

