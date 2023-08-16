@@ -1,17 +1,14 @@
 ---
 title: 'Buffer Overflow'
-description: ''
+description: '|_strcpy_ | _strcat_ | _gets / fgets_ |
+|_scanf / fscanf_ | _vsprintf_ | _printf_ |
+|_memcpy_'
 pubDate: 'Jul 08 2022'
-heroImage: '/xlrf.png'
 banner: 'my_banner'
 slug: 'buffer-overflow/intro'
 ---
 
 ### Finding Buffer Overflows
-
-|_strcpy_ | _strcat_ | _gets / fgets_ |
-|_scanf / fscanf_ | _vsprintf_ | _printf_ |
-|_memcpy_
 
 This tools can check your code for posibles overflows.
 
@@ -25,14 +22,14 @@ Almost 50% of vulnerabilities are not exploitable, but they may lead to DOS or c
 
 Command line | Parameters | Network data | File input | Databases | Shared memory regions | Keyboard/mouse input | Environment variables.
 
-#### Fuzzing tools and frameworks:
+### Fuzzing tools and frameworks:
 
 - Peach Fuzzing Platform
 - Sulley
 - Sfuzz
 - FileFuzz
 
-#### After having the correct offset
+### After having the correct offset
 
 Overwrite the eip with the valu so that value will be used be the ret instruction to return to our shellcode.
 

@@ -2,7 +2,6 @@
 title: 'Chisel Port Forwarding'
 description: ''
 pubDate: 'May 12 2023'
-heroImage: '/'
 slug: 'network/port_forwarding'
 ---
 
@@ -43,9 +42,7 @@ chisel client kali_ip:1234 R:443:target_2:443/udp
 
 # hacer curl a http3 -> cloudflare/quiche
 # http-client3
-```
 
-```bash
 # Ver de target_3 a target_2 y a kali
 target_2 ./socat TCP-LISTERN:4343,fork TCP:target_2-interface1 (192.168.111.106:80)
 
@@ -75,7 +72,7 @@ smbserver.py smbFolder $(pwd) -smb2support
 
 ```
 
-Example
+***Example***
 
 ```bash
 # target_1

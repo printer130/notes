@@ -2,17 +2,16 @@
 title: 'Obfuscation'
 description: 'Evasion with Shellter, obfuscation PowerShell Code.'
 pubDate: 'May 12 2023'
-heroImage: '/asd.png'
 slug: 'trip/obfuscation'
 ---
 
-**_Obfuscation:_** Reorganizes code in order to make it harcer to analyze or RE.
+- **_Obfuscation:_** Reorganizes code in order to make it harcer to analyze or RE.
 
-**_Encoding:_** Is a process involving changing data into a new format using a scheme. Enconding is a reversible process; data can be encoded to a new format and decoded to its original format.
+- **_Encoding:_** Is a process involving changing data into a new format using a scheme. Enconding is a reversible process; data can be encoded to a new format and decoded to its original format.
 
-**_Packing:_** Generate executables with new binary structure with a smaller size and therefore provides the payload with a new signature.
+- **_Packing:_** Generate executables with new binary structure with a smaller size and therefore provides the payload with a new signature.
 
-**_Crypters:_** Encrypts code or payloads and decrypts the encrypted code in memory. The decryption key/function is usually stored in a stub.
+- **_Crypters:_** Encrypts code or payloads and decrypts the encrypted code in memory. The decryption key/function is usually stored in a stub.
 
 ```bash
 apt install shellter -y
@@ -45,7 +44,7 @@ set PORT
 # EXECUTE app on windows and get a reverse shell.
 ```
 
-PowerShell Code Obfuscation.
+***PowerShell Code Obfuscation.***
 
 ```bash
 # PayloadAllTheThings

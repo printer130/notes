@@ -2,12 +2,8 @@
 title: 'Buffer Overflow (hands-on)'
 description: ''
 pubDate: 'Jul 08 2022'
-heroImage: '/xlrf.png'
-banner: 'my_banner'
 slug: 'buffer-overflow/code'
 ---
-
-### Example
 
 [Guia de Tib3rius para el OSCP](https://github.com/Tib3rius/Pentest-Cheatsheets/blob/master/exploits/buffer-overflows.rst)
 

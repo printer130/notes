@@ -1,8 +1,7 @@
 ---
-title: 'Clonar pagina'
-description: 'Los '
+title: 'Clonar página'
+description: '...'
 pubDate: 'May 12 2023'
-heroImage: '/'
 slug: 'trip/clone'
 ---
 

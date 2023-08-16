@@ -2,12 +2,10 @@
 title: 'Scanning'
 description: ''
 pubDate: 'May 12 2023'
-heroImage: '/enumeration.png'
 slug: 'network/scan'
 ---
 
 ```bash
-
 # Ver su es candidato zombie
 nmap --script ipidseq target -p135
 nmap -O -v target -p135
@@ -83,7 +81,7 @@ nmap -sS --source-port 53 target
 nmap -g 80 -sS target/24
 ```
 
-### otros
+### Otros
 
 Replaza la direccion mac con una random
 

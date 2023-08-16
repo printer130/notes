@@ -134,9 +134,9 @@ Despues de la authenticación una estacion necesita ser asociada por el AP, este
 
 ### 3 estados posibles de conexión
 
-1. No autenticado
-2. Autenticado pero no asociado
-3. Autenticado y asociado
+- No autenticado
+- Autenticado pero no asociado
+- Autenticado y asociado
 
 El estandar 802.11 original especifica que hay 2 modos de autenticación diferentes.
 
@@ -149,11 +149,9 @@ esta seccion muestra información sobre los clientes de la red
 
 <img src="https://res.cloudinary.com/djc1umong/image/upload/v1691031181/Screenshot_from_2023-08-02_22-52-47_mzhdsw.webp" alt="">
 
-[DB para brute-force](https://www.renderlab.net/projects/WPA-tables/)
+- [DB para brute-force](https://www.renderlab.net/projects/WPA-tables/)
 
 ### Airbase-ng
-
-- Implementaciones de 
 
 ```bash
 # Deprecated
