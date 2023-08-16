@@ -2,7 +2,6 @@
 title: 'Firewall'
 description: ''
 pubDate: 'May 12 2023'
-heroImage: '/'
 slug: 'firewall'
 ---
 

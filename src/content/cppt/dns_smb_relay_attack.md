@@ -1,8 +1,7 @@
 ---
 title: 'DNS y SMB Relay Attack'
-description: ''
+description: '...'
 pubDate: 'May 12 2023'
-heroImage: '/'
 slug: 'dns_smb_relay_attack'
 ---
 

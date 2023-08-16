@@ -2,7 +2,6 @@
 title: 'Responder Attack'
 description: 'Responder Attack'
 pubDate: 'May 12 2023'
-heroImage: ''
 slug: 'responder_attack'
 ---
 
@@ -20,7 +19,6 @@ ls /usr/share/responder/tools
 El script MultiRelay.py utiliza Runas.exe y Syssvc.exe. Estos ejecutables son x86-64. Necesitamos un ejecutable compilado x86. Eliminemos ambos ejecutables y compilemos un archivo x86. El código fuente de ambos ejecutables está en el directorio /usr/share/responder/tools/MultiRelay/bin.
 
 ```bash
-
 rm /usr/share/responder/tools/MultiRelay/bin/Runas.exe
 rm /usr/share/responder/tools/MultiRelay/bin/Syssvc.exe
 
@@ -35,7 +33,4 @@ i686-w64-mingw32-gcc /usr/share/responder/tools/MultiRelay/bin/Syssvc.c -o /usr/
 #y el respodner
 
 responder -I eth1 --lm
-
-
-
 ```

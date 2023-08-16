@@ -2,7 +2,6 @@
 title: 'Cryptography'
 description: ''
 pubDate: 'May 12 2023'
-heroImage: '/enumeration.png'
 slug: 'cppt/intro'
 ---
 

@@ -2,7 +2,6 @@
 title: 'Enumeration'
 description: 'A resume from INE Learning Path for eJPT cert and some self notes to get success'
 pubDate: 'May 12 2023'
-heroImage: '/enumeration.png'
 slug: 'trip/enumeration'
 ---
 
@@ -19,15 +18,10 @@ Subdomain Enumeration
 **Google Dorks**
 
 - http://exploit-db.com
-- site: gov._ intitle: "index of" _.csv passwords
 
-[google dorking](https://www.googleguide.com/advanced_operators_reference.html)
+- [Google Dorking](https://www.googleguide.com/advanced_operators_reference.html)
 
-[google hacking](https://www.exploit-db.com/google-hacking-database)
-```bash
-
-
-```
+- [Google Hacking](https://www.exploit-db.com/google-hacking-database)
 
 **Email Harvesting**
 
@@ -88,7 +82,7 @@ File transfer protocol uses TCP port 21.
 
 ```bash
 
-# find ftp potentially script from nmap.
+# Find ftp potentially script from nmap.
 
 ls -la /usr/share/nmap/scripts | grep ftp-*
 

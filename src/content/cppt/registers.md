@@ -1,14 +1,9 @@
 ---
 title: 'Registers'
-description: ''
+description: 'The following table sumarizes the eight general purpose registers. Notice that the naming convention refers to the x86 architecture. We will see how the names differ for 64-bit, 32-bit, 16-bit and 8-bit.'
 pubDate: 'May 12 2023'
-heroImage: '/enumeration.png'
 slug: 'cppt/registers'
 ---
-
-## Registers
-
-The following table sumarizes the eight general purpose registers. Notice that the naming convention refers to the x86 architecture. We will see how the names differ for 64-bit, 32-bit, 16-bit and 8-bit.
 
 <img src='https://res.cloudinary.com/djc1umong/image/upload/v1685479255/Screenshot_from_2023-05-30_16-39-17_ycwy5t.png' width='968px' >
 

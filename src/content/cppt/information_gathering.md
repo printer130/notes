@@ -1,19 +1,18 @@
 ---
-title: 'Recolectar informacion'
-description: ''
+title: 'Recolectar información'
+description: '...'
 pubDate: 'May 12 2023'
-heroImage: '/'
 slug: 'information_gathering'
 ---
 
-## Social Media
+### Social Media
 
 - Crunchbase
 - Peoplefinders
 - Pipl
 - Spokeo
 
-## Infrastructures
+### Infrastructures
 
 El objetivo es recolectar:
 
@@ -23,7 +22,7 @@ El objetivo es recolectar:
 - ISP's used.
 - Any other technical information.
 
-## WHOIS Protocol 43 port
+### WHOIS Protocol 43 port
 
 - who.is
 - whois.domaintools.com

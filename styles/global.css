@@ -23,18 +23,19 @@ table, th, td {
 }
 
 h2,h3,h4 {
-  color: rgba(72 ,199 ,142 ,0.84);
+  color: #e5e5eb;
 }
 
 h2 {
   font-size: 1.8rem;
-  padding-top: 1.4rem;
+  padding-top: 1.5rem;
   font-weight: bold;
+  color: rgba(72 ,199 ,142 ,0.78);
 }
 
 h3 {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.625rem;
 }
 
 img {
@@ -65,9 +66,9 @@ p {
   display: inline-block;
   line-height: 175%;
   display: block;
-  width: 100%;
-  font-size: 1.125rem;
-  letter-spacing: 0.315px;
+  font-weight: 300;
+  font-size: 1.275rem;
+  letter-spacing: 0.345px;
 }
 
 

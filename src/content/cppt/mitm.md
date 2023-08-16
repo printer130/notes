@@ -2,7 +2,6 @@
 title: 'MITM'
 description: ''
 pubDate: 'May 12 2023'
-heroImage: '/malware.png'
 slug: 'mitm'
 ---
 
@@ -121,7 +120,7 @@ ARP es un protocolo utilizado para la resolución de direcciones de la capa de r
 
 Como se puede ver en la siguiente captura de pantalla, se enviaron varios paquetes ARP a la dirección Broadcast ff:ff:ff:ff:ff:ff. Sin embargo, sólo se obtuvieron respuestas ARP de hosts vivos: 172.16.5.1, 172.16.5.5, 172.16.5.6 y 172.16.5.10.
 
-#### Usando DNS server
+### Usando DNS server
 
 Ya tenemos una lista de hosts activos. Ahora necesitamos consultar cada host activo para identificar qué host está ejecutando el servidor DNS.
 
@@ -130,7 +129,6 @@ El puerto DNS es TCP/53 para transferencia de zona y UDP/53 para consultas DNS. 
 El siguiente comando le dice a nmap que utilice un TCP Connect Scan al puerto 53 para los hosts 172.16.5.1, 172.16.5.5, 172.16.5.6, y 172.16.5.10
 
 ```bash
-
 nmap -sT -p 53 172.16.5.1,5,6,10
 
 ```
@@ -139,12 +137,11 @@ nmap -sT -p 53 172.16.5.1,5,6,10
 
 _Nota:_ Debe tenerse en cuenta que los escaneos DNS para puertos TCP pueden a veces no coincidir con los puertos reales abiertos en el objetivo, como se ve a veces en el caso en compromisos del mundo real, dependiendo de la conectividad de red, etc. Por lo tanto, asegúrese de ejecutar los escaneos DNS varias veces para asegurarse de que está recogiendo TCP/53 como abierto.
 
-#### Nombre de Dominio
+### Nombre de Dominio
 
 Después de descubrir un par de hosts vivos y también la dirección del Servidor DNS, nuestro siguiente paso es identificar el Nombre de Dominio de la red. Para ello, podemos realizar una búsqueda inversa utilizando nslookup o dig.
 
 ```bash
-
 # metodo 1
 nslookup
 
@@ -161,18 +158,15 @@ dig @192.168.5.7 scanme.com -t AXFR +nocookie
 
 ```
 
-#### Identificar gateway por defecto
+### Identificar gateway por defecto
 
 ```bash
-
 traceroute 10.10.10.10 -m 5
 
 # or
-
 traceroute 10.10.10.10 -m 5 -T
 
 # or
-
 route
 ```
 
@@ -180,7 +174,7 @@ _Nota:_ Para poder husmear paquetes usando arpspoof, necesitarás usar la misma 
 
 <img src="https://res.cloudinary.com/djc1umong/image/upload/v1688151233/0_y1wvzh.webp" >
 
-#### Capturar el trafico entre 172.16.5.5 y 172.16.5.1
+### Capturar el trafico entre 172.16.5.5 y 172.16.5.1
 
 ```bash
 # Habilitamos ip_forwarding en nuestro sistema
@@ -190,7 +184,6 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 arpspoof -i eth1 -t 172.16.5.5 -r 172.16.5.1
 
 arpspoof -i eth1 -t 172.16.5.1 -r 172.16.5.5
-
 ```
 
 los comandos de arriba van a mandar paquetes arp hasta envenenar la tabla ARP en ambos hosts.
@@ -198,14 +191,13 @@ los comandos de arriba van a mandar paquetes arp hasta envenenar la tabla ARP en
 A continuación, para ver si hay imágenes en el tráfico entre estos hosts, vamos a lanzar driftnet mientras se ejecutan nuestros ataques arspoof.
 
 ```bash
-
 driftnet -i eth1
 
 ```
 
 Capturamos el tráfico por alrededor de 5m y lo guardamos en un archivo.
 
-#### Capturamos el tráfico entre 172.16.5.6 y 172.16.5.1
+### Capturamos el tráfico entre 172.16.5.6 y 172.16.5.1
 
 ```bash
 arpspoof -i eth1 -t 172.16.5.6 -r 172.16.5.1
@@ -217,16 +209,14 @@ arpspoof -i eth1 -t 172.16.5.1 -r 172.16.5.6
 arpspoof -i eth1 -t 172.16.5.6 -r 172.16.5.10
 
 arpspoof -i eth1 -t 172.16.5.10 -r 172.16.5.6
-
 ```
 
-#### Análizamos el archivo capturado.
+### Análizamos el archivo capturado.
 
 Para tener una visión general del tipo de tráfico que hemos capturado, tenemos que abrir el archivo de captura Task5.pcap y luego desde el menú: _Statistics > Protocol Hierarchy_ para tener una idea de que clase de tráfico estamos viendo.
 
 ```bash
 #FILTROS WIRESHARK
-
 http and ip.addr == 172.16.5.5
 
 ###
@@ -239,7 +229,6 @@ http.request.method == "POST"
 
 # Repetir el proceso hasta encontrar algo interesante.
 http.location == "/login_success.php"
-
 # Recolectar smb
 
 smb.file
@@ -248,11 +237,11 @@ smb.file
 
 En la misma ventana (Follow HTTP Stream), haga clic en el botón llamado Filter Out This stream, para que Wireshark excluya temporalmente esta petición de los paquetes restantes, para que pueda continuar su análisis.
 
-#### Recolectamos las fotos
+### Recolectamos las fotos
 
 Manteniendo la captura task6.pcap abierta en Wireshark, vamos a seleccionar en el menú Archivo: _Export Objects > HTTP_
 
-#### Filtro SMB
+### Filtro SMB
 
 Probando el acceso a la parte UNC: \\172.16.5.10\finance, podemos usar el comando _mount_.
 

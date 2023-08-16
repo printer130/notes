@@ -6,7 +6,7 @@ heroImage: '/ldapi.jpg'
 tag: ['windows', 'RDP']
 ---
 
-## Information
+### Information
 
 - The Remote Dektop Protocol is propriertary GUI remote access protocol developed by Microsoft and is used to remotely connect and interact with a windows system.
 
