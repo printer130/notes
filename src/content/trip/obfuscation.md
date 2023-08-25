@@ -66,3 +66,5 @@ ALL
 # Transfer payload to target
 # and set up a listener nc
 ```
+
+- [Ip converter](https://www.silisoftware.com/tools/ipconverter.php)

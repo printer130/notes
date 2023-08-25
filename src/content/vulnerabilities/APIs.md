@@ -30,3 +30,10 @@ slug: 'apis'
 - Scan incoming requests for malicious intent
 - Support clustered API implementation to handle fault tolerance
 - Track the usage and paths taken by API calls to find anomalies
+
+
+```bash
+# Palabra FUZZ en el archivo usersearch.req
+
+ffuf -request usersearch.req -request-proto http -w <( seq 0 100 ) -fs 3
+```

